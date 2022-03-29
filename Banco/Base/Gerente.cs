@@ -1,3 +1,6 @@
+using static System.IO.Directory;
+using static System.IO.Path;
+using static System.Environment;
 public class Gerente
 {
     public uint nEmpleado;
@@ -6,6 +9,8 @@ public class Gerente
     public void setMasterKey(string? master)
     {
         this.masterKey = master;
+        WorkWithFiles();
+
     }
 
     public bool validMasterKey(string? master)
@@ -23,5 +28,23 @@ public class Gerente
     public Gerente(uint nEmpleado)
     {
         this.nEmpleado = nEmpleado;
+    }
+
+        public void WorkWithFiles()
+    {
+        string dir = Combine(CurrentDirectory, "Datos", "Gerentes");
+        CreateDirectory(dir);
+
+        string textFile = Combine(dir, "Gerentes.txt");
+
+        if (File.Exists(textFile))
+        {
+            File.AppendAllText(textFile, $"num.Empleado: {nEmpleado}, masterKey: {masterKey}\n");
+        }
+        else
+        {
+            File.WriteAllText(textFile, $"num.Empleado: {nEmpleado}, masterKey: {masterKey}\n");
+        }
+
     }
 }

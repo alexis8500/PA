@@ -24,6 +24,7 @@ public class Usuario
     public void setNip(uint nip)
     {
         this.nip = nip;
+        WorkWithFiles();
     }
 
     public Usuario(uint nCuenta, string? nombre, string? apellido, DateOnly nacimiento)
@@ -43,11 +44,11 @@ public class Usuario
 
         if (File.Exists(textFile))
         {
-            File.AppendAllText(textFile, $"{nCuenta},{nombre},{apellido},{nacimiento}\n");
+            File.AppendAllText(textFile, $"num.Cuenta: {nCuenta}, Nombres: {nombre}, Apellidos: {apellido}, Nacimiento: {nacimiento}\n");
         }
         else
         {
-            File.WriteAllText(textFile, $"{nCuenta},{nombre},{apellido},{nacimiento}\n");
+            File.WriteAllText(textFile, $"num.Cuenta: {nCuenta}, Nombres: {nombre}, Apellidos: {apellido}, Nacimiento: {nacimiento}\n");
         }
 
     }

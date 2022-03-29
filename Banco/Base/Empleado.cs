@@ -1,3 +1,6 @@
+using static System.IO.Directory;
+using static System.IO.Path;
+using static System.Environment;
 public class Empleado
 {
     public uint nEmpleado;
@@ -11,5 +14,24 @@ public class Empleado
         this.nombre = nombre;
         this.apellido = apellido;
         this.nacimiento = nacimiento;
+        WorkWithFiles();
+    }
+
+        public void WorkWithFiles()
+    {
+        string dir = Combine(CurrentDirectory, "Datos", "Empleados");
+        CreateDirectory(dir);
+
+        string textFile = Combine(dir, "Empleados.txt");
+
+        if (File.Exists(textFile))
+        {
+            File.AppendAllText(textFile, $"num.Empleado: {nEmpleado}, Nombres: {nombre}, Apellidos: {apellido}, Nacimiento: {nacimiento}\n");
+        }
+        else
+        {
+            File.WriteAllText(textFile, $"num.Empleado: {nEmpleado}, Nombres: {nombre}, Apellidos: {apellido}, Nacimiento: {nacimiento}\n");
+        }
+
     }
 }
