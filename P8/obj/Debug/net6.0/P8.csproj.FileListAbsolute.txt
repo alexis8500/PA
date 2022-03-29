@@ -1,0 +1,15 @@
+/Users/saulalexisperezrincon/Documents/PA/P8/bin/Debug/net6.0/P8
+/Users/saulalexisperezrincon/Documents/PA/P8/bin/Debug/net6.0/P8.deps.json
+/Users/saulalexisperezrincon/Documents/PA/P8/bin/Debug/net6.0/P8.runtimeconfig.json
+/Users/saulalexisperezrincon/Documents/PA/P8/bin/Debug/net6.0/P8.dll
+/Users/saulalexisperezrincon/Documents/PA/P8/bin/Debug/net6.0/ref/P8.dll
+/Users/saulalexisperezrincon/Documents/PA/P8/bin/Debug/net6.0/P8.pdb
+/Users/saulalexisperezrincon/Documents/PA/P8/obj/Debug/net6.0/P8.csproj.AssemblyReference.cache
+/Users/saulalexisperezrincon/Documents/PA/P8/obj/Debug/net6.0/P8.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saulalexisperezrincon/Documents/PA/P8/obj/Debug/net6.0/P8.AssemblyInfoInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/P8/obj/Debug/net6.0/P8.AssemblyInfo.cs
+/Users/saulalexisperezrincon/Documents/PA/P8/obj/Debug/net6.0/P8.csproj.CoreCompileInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/P8/obj/Debug/net6.0/P8.dll
+/Users/saulalexisperezrincon/Documents/PA/P8/obj/Debug/net6.0/ref/P8.dll
+/Users/saulalexisperezrincon/Documents/PA/P8/obj/Debug/net6.0/P8.pdb
+/Users/saulalexisperezrincon/Documents/PA/P8/obj/Debug/net6.0/P8.genruntimeconfig.cache

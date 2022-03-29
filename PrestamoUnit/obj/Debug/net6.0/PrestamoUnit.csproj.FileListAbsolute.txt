@@ -1,0 +1,12 @@
+/Users/saulalexisperezrincon/Documents/PA/PrestamoUnit/bin/Debug/net6.0/PrestamoUnit.deps.json
+/Users/saulalexisperezrincon/Documents/PA/PrestamoUnit/bin/Debug/net6.0/PrestamoUnit.dll
+/Users/saulalexisperezrincon/Documents/PA/PrestamoUnit/bin/Debug/net6.0/ref/PrestamoUnit.dll
+/Users/saulalexisperezrincon/Documents/PA/PrestamoUnit/bin/Debug/net6.0/PrestamoUnit.pdb
+/Users/saulalexisperezrincon/Documents/PA/PrestamoUnit/obj/Debug/net6.0/PrestamoUnit.csproj.AssemblyReference.cache
+/Users/saulalexisperezrincon/Documents/PA/PrestamoUnit/obj/Debug/net6.0/PrestamoUnit.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saulalexisperezrincon/Documents/PA/PrestamoUnit/obj/Debug/net6.0/PrestamoUnit.AssemblyInfoInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/PrestamoUnit/obj/Debug/net6.0/PrestamoUnit.AssemblyInfo.cs
+/Users/saulalexisperezrincon/Documents/PA/PrestamoUnit/obj/Debug/net6.0/PrestamoUnit.csproj.CoreCompileInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/PrestamoUnit/obj/Debug/net6.0/PrestamoUnit.dll
+/Users/saulalexisperezrincon/Documents/PA/PrestamoUnit/obj/Debug/net6.0/ref/PrestamoUnit.dll
+/Users/saulalexisperezrincon/Documents/PA/PrestamoUnit/obj/Debug/net6.0/PrestamoUnit.pdb

@@ -1,0 +1,12 @@
+/Users/saulalexisperezrincon/Documents/PA/CardinalUnit/bin/Debug/net6.0/CardinalUnit.deps.json
+/Users/saulalexisperezrincon/Documents/PA/CardinalUnit/bin/Debug/net6.0/CardinalUnit.dll
+/Users/saulalexisperezrincon/Documents/PA/CardinalUnit/bin/Debug/net6.0/ref/CardinalUnit.dll
+/Users/saulalexisperezrincon/Documents/PA/CardinalUnit/bin/Debug/net6.0/CardinalUnit.pdb
+/Users/saulalexisperezrincon/Documents/PA/CardinalUnit/obj/Debug/net6.0/CardinalUnit.csproj.AssemblyReference.cache
+/Users/saulalexisperezrincon/Documents/PA/CardinalUnit/obj/Debug/net6.0/CardinalUnit.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saulalexisperezrincon/Documents/PA/CardinalUnit/obj/Debug/net6.0/CardinalUnit.AssemblyInfoInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/CardinalUnit/obj/Debug/net6.0/CardinalUnit.AssemblyInfo.cs
+/Users/saulalexisperezrincon/Documents/PA/CardinalUnit/obj/Debug/net6.0/CardinalUnit.csproj.CoreCompileInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/CardinalUnit/obj/Debug/net6.0/CardinalUnit.dll
+/Users/saulalexisperezrincon/Documents/PA/CardinalUnit/obj/Debug/net6.0/ref/CardinalUnit.dll
+/Users/saulalexisperezrincon/Documents/PA/CardinalUnit/obj/Debug/net6.0/CardinalUnit.pdb

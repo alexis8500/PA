@@ -1,0 +1,12 @@
+/Users/saulalexisperezrincon/Documents/PA/BiArray/Array/bin/Debug/net6.0/Array.deps.json
+/Users/saulalexisperezrincon/Documents/PA/BiArray/Array/bin/Debug/net6.0/Array.dll
+/Users/saulalexisperezrincon/Documents/PA/BiArray/Array/bin/Debug/net6.0/ref/Array.dll
+/Users/saulalexisperezrincon/Documents/PA/BiArray/Array/bin/Debug/net6.0/Array.pdb
+/Users/saulalexisperezrincon/Documents/PA/BiArray/Array/obj/Debug/net6.0/Array.csproj.AssemblyReference.cache
+/Users/saulalexisperezrincon/Documents/PA/BiArray/Array/obj/Debug/net6.0/Array.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saulalexisperezrincon/Documents/PA/BiArray/Array/obj/Debug/net6.0/Array.AssemblyInfoInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/BiArray/Array/obj/Debug/net6.0/Array.AssemblyInfo.cs
+/Users/saulalexisperezrincon/Documents/PA/BiArray/Array/obj/Debug/net6.0/Array.csproj.CoreCompileInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/BiArray/Array/obj/Debug/net6.0/Array.dll
+/Users/saulalexisperezrincon/Documents/PA/BiArray/Array/obj/Debug/net6.0/ref/Array.dll
+/Users/saulalexisperezrincon/Documents/PA/BiArray/Array/obj/Debug/net6.0/Array.pdb

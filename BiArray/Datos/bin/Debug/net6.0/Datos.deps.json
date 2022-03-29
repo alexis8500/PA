@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Datos/1.0.0": {
+        "dependencies": {
+          "Array": "1.0.0"
+        },
+        "runtime": {
+          "Datos.dll": {}
+        }
+      },
+      "Array/1.0.0": {
+        "runtime": {
+          "Array.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Datos/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Array/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

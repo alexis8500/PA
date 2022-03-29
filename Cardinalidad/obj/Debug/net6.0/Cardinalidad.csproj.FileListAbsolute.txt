@@ -1,0 +1,15 @@
+/Users/saulalexisperezrincon/Documents/PA/Cardinalidad/bin/Debug/net6.0/Cardinalidad
+/Users/saulalexisperezrincon/Documents/PA/Cardinalidad/bin/Debug/net6.0/Cardinalidad.deps.json
+/Users/saulalexisperezrincon/Documents/PA/Cardinalidad/bin/Debug/net6.0/Cardinalidad.runtimeconfig.json
+/Users/saulalexisperezrincon/Documents/PA/Cardinalidad/bin/Debug/net6.0/Cardinalidad.dll
+/Users/saulalexisperezrincon/Documents/PA/Cardinalidad/bin/Debug/net6.0/ref/Cardinalidad.dll
+/Users/saulalexisperezrincon/Documents/PA/Cardinalidad/bin/Debug/net6.0/Cardinalidad.pdb
+/Users/saulalexisperezrincon/Documents/PA/Cardinalidad/obj/Debug/net6.0/Cardinalidad.csproj.AssemblyReference.cache
+/Users/saulalexisperezrincon/Documents/PA/Cardinalidad/obj/Debug/net6.0/Cardinalidad.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saulalexisperezrincon/Documents/PA/Cardinalidad/obj/Debug/net6.0/Cardinalidad.AssemblyInfoInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/Cardinalidad/obj/Debug/net6.0/Cardinalidad.AssemblyInfo.cs
+/Users/saulalexisperezrincon/Documents/PA/Cardinalidad/obj/Debug/net6.0/Cardinalidad.csproj.CoreCompileInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/Cardinalidad/obj/Debug/net6.0/Cardinalidad.dll
+/Users/saulalexisperezrincon/Documents/PA/Cardinalidad/obj/Debug/net6.0/ref/Cardinalidad.dll
+/Users/saulalexisperezrincon/Documents/PA/Cardinalidad/obj/Debug/net6.0/Cardinalidad.pdb
+/Users/saulalexisperezrincon/Documents/PA/Cardinalidad/obj/Debug/net6.0/Cardinalidad.genruntimeconfig.cache

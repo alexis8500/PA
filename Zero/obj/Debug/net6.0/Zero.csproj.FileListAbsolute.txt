@@ -1,0 +1,15 @@
+/Users/saulalexisperezrincon/Documents/PA/Zero/bin/Debug/net6.0/Zero
+/Users/saulalexisperezrincon/Documents/PA/Zero/bin/Debug/net6.0/Zero.deps.json
+/Users/saulalexisperezrincon/Documents/PA/Zero/bin/Debug/net6.0/Zero.runtimeconfig.json
+/Users/saulalexisperezrincon/Documents/PA/Zero/bin/Debug/net6.0/Zero.dll
+/Users/saulalexisperezrincon/Documents/PA/Zero/bin/Debug/net6.0/ref/Zero.dll
+/Users/saulalexisperezrincon/Documents/PA/Zero/bin/Debug/net6.0/Zero.pdb
+/Users/saulalexisperezrincon/Documents/PA/Zero/obj/Debug/net6.0/Zero.csproj.AssemblyReference.cache
+/Users/saulalexisperezrincon/Documents/PA/Zero/obj/Debug/net6.0/Zero.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saulalexisperezrincon/Documents/PA/Zero/obj/Debug/net6.0/Zero.AssemblyInfoInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/Zero/obj/Debug/net6.0/Zero.AssemblyInfo.cs
+/Users/saulalexisperezrincon/Documents/PA/Zero/obj/Debug/net6.0/Zero.csproj.CoreCompileInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/Zero/obj/Debug/net6.0/Zero.dll
+/Users/saulalexisperezrincon/Documents/PA/Zero/obj/Debug/net6.0/ref/Zero.dll
+/Users/saulalexisperezrincon/Documents/PA/Zero/obj/Debug/net6.0/Zero.pdb
+/Users/saulalexisperezrincon/Documents/PA/Zero/obj/Debug/net6.0/Zero.genruntimeconfig.cache

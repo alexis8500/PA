@@ -1,0 +1,12 @@
+/Users/saulalexisperezrincon/Documents/PA/GeneralLibrary/PeopleLibrary/bin/Debug/net6.0/PeopleLibrary.deps.json
+/Users/saulalexisperezrincon/Documents/PA/GeneralLibrary/PeopleLibrary/bin/Debug/net6.0/PeopleLibrary.dll
+/Users/saulalexisperezrincon/Documents/PA/GeneralLibrary/PeopleLibrary/bin/Debug/net6.0/ref/PeopleLibrary.dll
+/Users/saulalexisperezrincon/Documents/PA/GeneralLibrary/PeopleLibrary/bin/Debug/net6.0/PeopleLibrary.pdb
+/Users/saulalexisperezrincon/Documents/PA/GeneralLibrary/PeopleLibrary/obj/Debug/net6.0/PeopleLibrary.csproj.AssemblyReference.cache
+/Users/saulalexisperezrincon/Documents/PA/GeneralLibrary/PeopleLibrary/obj/Debug/net6.0/PeopleLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saulalexisperezrincon/Documents/PA/GeneralLibrary/PeopleLibrary/obj/Debug/net6.0/PeopleLibrary.AssemblyInfoInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/GeneralLibrary/PeopleLibrary/obj/Debug/net6.0/PeopleLibrary.AssemblyInfo.cs
+/Users/saulalexisperezrincon/Documents/PA/GeneralLibrary/PeopleLibrary/obj/Debug/net6.0/PeopleLibrary.csproj.CoreCompileInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/GeneralLibrary/PeopleLibrary/obj/Debug/net6.0/PeopleLibrary.dll
+/Users/saulalexisperezrincon/Documents/PA/GeneralLibrary/PeopleLibrary/obj/Debug/net6.0/ref/PeopleLibrary.dll
+/Users/saulalexisperezrincon/Documents/PA/GeneralLibrary/PeopleLibrary/obj/Debug/net6.0/PeopleLibrary.pdb

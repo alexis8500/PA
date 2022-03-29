@@ -1,0 +1,15 @@
+/Users/saulalexisperezrincon/Documents/PA/Exa/bin/Debug/net6.0/Exa
+/Users/saulalexisperezrincon/Documents/PA/Exa/bin/Debug/net6.0/Exa.deps.json
+/Users/saulalexisperezrincon/Documents/PA/Exa/bin/Debug/net6.0/Exa.runtimeconfig.json
+/Users/saulalexisperezrincon/Documents/PA/Exa/bin/Debug/net6.0/Exa.dll
+/Users/saulalexisperezrincon/Documents/PA/Exa/bin/Debug/net6.0/ref/Exa.dll
+/Users/saulalexisperezrincon/Documents/PA/Exa/bin/Debug/net6.0/Exa.pdb
+/Users/saulalexisperezrincon/Documents/PA/Exa/obj/Debug/net6.0/Exa.csproj.AssemblyReference.cache
+/Users/saulalexisperezrincon/Documents/PA/Exa/obj/Debug/net6.0/Exa.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saulalexisperezrincon/Documents/PA/Exa/obj/Debug/net6.0/Exa.AssemblyInfoInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/Exa/obj/Debug/net6.0/Exa.AssemblyInfo.cs
+/Users/saulalexisperezrincon/Documents/PA/Exa/obj/Debug/net6.0/Exa.csproj.CoreCompileInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/Exa/obj/Debug/net6.0/Exa.dll
+/Users/saulalexisperezrincon/Documents/PA/Exa/obj/Debug/net6.0/ref/Exa.dll
+/Users/saulalexisperezrincon/Documents/PA/Exa/obj/Debug/net6.0/Exa.pdb
+/Users/saulalexisperezrincon/Documents/PA/Exa/obj/Debug/net6.0/Exa.genruntimeconfig.cache

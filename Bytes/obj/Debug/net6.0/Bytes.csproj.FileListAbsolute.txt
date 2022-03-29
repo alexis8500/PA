@@ -1,0 +1,15 @@
+/Users/saulalexisperezrincon/Documents/PA/Bytes/obj/Debug/net6.0/Bytes.csproj.AssemblyReference.cache
+/Users/saulalexisperezrincon/Documents/PA/Bytes/obj/Debug/net6.0/Bytes.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saulalexisperezrincon/Documents/PA/Bytes/obj/Debug/net6.0/Bytes.AssemblyInfoInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/Bytes/obj/Debug/net6.0/Bytes.AssemblyInfo.cs
+/Users/saulalexisperezrincon/Documents/PA/Bytes/obj/Debug/net6.0/Bytes.csproj.CoreCompileInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/Bytes/bin/Debug/net6.0/Bytes
+/Users/saulalexisperezrincon/Documents/PA/Bytes/bin/Debug/net6.0/Bytes.deps.json
+/Users/saulalexisperezrincon/Documents/PA/Bytes/bin/Debug/net6.0/Bytes.runtimeconfig.json
+/Users/saulalexisperezrincon/Documents/PA/Bytes/bin/Debug/net6.0/Bytes.dll
+/Users/saulalexisperezrincon/Documents/PA/Bytes/bin/Debug/net6.0/ref/Bytes.dll
+/Users/saulalexisperezrincon/Documents/PA/Bytes/bin/Debug/net6.0/Bytes.pdb
+/Users/saulalexisperezrincon/Documents/PA/Bytes/obj/Debug/net6.0/Bytes.dll
+/Users/saulalexisperezrincon/Documents/PA/Bytes/obj/Debug/net6.0/ref/Bytes.dll
+/Users/saulalexisperezrincon/Documents/PA/Bytes/obj/Debug/net6.0/Bytes.pdb
+/Users/saulalexisperezrincon/Documents/PA/Bytes/obj/Debug/net6.0/Bytes.genruntimeconfig.cache

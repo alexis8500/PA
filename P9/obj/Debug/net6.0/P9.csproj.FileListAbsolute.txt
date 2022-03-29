@@ -1,0 +1,15 @@
+/Users/saulalexisperezrincon/Documents/PA/P9/bin/Debug/net6.0/P9
+/Users/saulalexisperezrincon/Documents/PA/P9/bin/Debug/net6.0/P9.deps.json
+/Users/saulalexisperezrincon/Documents/PA/P9/bin/Debug/net6.0/P9.runtimeconfig.json
+/Users/saulalexisperezrincon/Documents/PA/P9/bin/Debug/net6.0/P9.dll
+/Users/saulalexisperezrincon/Documents/PA/P9/bin/Debug/net6.0/ref/P9.dll
+/Users/saulalexisperezrincon/Documents/PA/P9/bin/Debug/net6.0/P9.pdb
+/Users/saulalexisperezrincon/Documents/PA/P9/obj/Debug/net6.0/P9.csproj.AssemblyReference.cache
+/Users/saulalexisperezrincon/Documents/PA/P9/obj/Debug/net6.0/P9.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saulalexisperezrincon/Documents/PA/P9/obj/Debug/net6.0/P9.AssemblyInfoInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/P9/obj/Debug/net6.0/P9.AssemblyInfo.cs
+/Users/saulalexisperezrincon/Documents/PA/P9/obj/Debug/net6.0/P9.csproj.CoreCompileInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/P9/obj/Debug/net6.0/P9.dll
+/Users/saulalexisperezrincon/Documents/PA/P9/obj/Debug/net6.0/ref/P9.dll
+/Users/saulalexisperezrincon/Documents/PA/P9/obj/Debug/net6.0/P9.pdb
+/Users/saulalexisperezrincon/Documents/PA/P9/obj/Debug/net6.0/P9.genruntimeconfig.cache
