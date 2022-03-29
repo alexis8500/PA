@@ -94,7 +94,7 @@ namespace Banco
                         return false;
                     }
 
-                    WriteLine("Aprovado");
+                    WriteLine("Aprobado");
                     return true;
                 }
                 else if (plazo == 24 || plazo == 36)
@@ -121,7 +121,7 @@ namespace Banco
                         return false;
                     }
 
-                    WriteLine("Aprovado");
+                    WriteLine("Aprobado");
                     return true;
                 }
                 else
