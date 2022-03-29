@@ -1,0 +1,33 @@
+[
+    {
+        "FirstName": "Pau Pau",
+        "LastName": "El Variables Culeras",
+        "DateOfBirth": "1974-03-14T00:00:00",
+        "Children": null
+    },
+    {
+        "FirstName": "Mario",
+        "LastName": "El Puto",
+        "DateOfBirth": "2000-04-20T00:00:00",
+        "Children": [
+            {
+                "FirstName": "Dylan",
+                "LastName": "Meses",
+                "DateOfBirth": "2022-04-28T00:00:00",
+                "Children": null
+            }
+        ]
+    },
+    {
+        "FirstName": "Alexis",
+        "LastName": "El Guapo",
+        "DateOfBirth": "2002-04-02T00:00:00",
+        "Children": null
+    },
+    {
+        "FirstName": "Sara",
+        "LastName": "La compañera",
+        "DateOfBirth": "2002-05-12T00:00:00",
+        "Children": null
+    }
+]

@@ -1,0 +1,17 @@
+/Users/saulalexisperezrincon/Documents/PA/P10/bin/Debug/net6.0/P10
+/Users/saulalexisperezrincon/Documents/PA/P10/bin/Debug/net6.0/P10.deps.json
+/Users/saulalexisperezrincon/Documents/PA/P10/bin/Debug/net6.0/P10.runtimeconfig.json
+/Users/saulalexisperezrincon/Documents/PA/P10/bin/Debug/net6.0/P10.dll
+/Users/saulalexisperezrincon/Documents/PA/P10/bin/Debug/net6.0/ref/P10.dll
+/Users/saulalexisperezrincon/Documents/PA/P10/bin/Debug/net6.0/P10.pdb
+/Users/saulalexisperezrincon/Documents/PA/P10/obj/Debug/net6.0/P10.csproj.AssemblyReference.cache
+/Users/saulalexisperezrincon/Documents/PA/P10/obj/Debug/net6.0/P10.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saulalexisperezrincon/Documents/PA/P10/obj/Debug/net6.0/P10.AssemblyInfoInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/P10/obj/Debug/net6.0/P10.AssemblyInfo.cs
+/Users/saulalexisperezrincon/Documents/PA/P10/obj/Debug/net6.0/P10.csproj.CoreCompileInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/P10/obj/Debug/net6.0/P10.dll
+/Users/saulalexisperezrincon/Documents/PA/P10/obj/Debug/net6.0/ref/P10.dll
+/Users/saulalexisperezrincon/Documents/PA/P10/obj/Debug/net6.0/P10.pdb
+/Users/saulalexisperezrincon/Documents/PA/P10/obj/Debug/net6.0/P10.genruntimeconfig.cache
+/Users/saulalexisperezrincon/Documents/PA/P10/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/saulalexisperezrincon/Documents/PA/P10/obj/Debug/net6.0/P10.csproj.CopyComplete

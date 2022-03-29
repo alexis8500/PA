@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "G9kP8kNSbpp7uWS56d8yv1QgLXB89tI8cHAi0I8DzLwtmpZErddjCVdCU9MrkGQpDJJK4oR3JOepFIcKDStaKQ==",
+  "dgSpecHash": "MsC+7x+HVg1UH5OVTb467ZxnmtqsyZN5Ymqdw57tctNLXpjMR61CZ5etPDi625nhJQpck1dS+poNAZytqrvH3w==",
   "success": true,
   "projectFilePath": "/Users/saulalexisperezrincon/Documents/PA/P10/P10.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/saulalexisperezrincon/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
