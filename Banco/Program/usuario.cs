@@ -19,11 +19,11 @@ namespace Banco
                 Write("Ingresa el fecha de nacimiento : ");
                 string? fecha = ReadLine();
                 Write("Ingresa el nip : ");
-                string? nip = ReadLine();
+                string? Nip = ReadLine();
+                uint nip = uint.Parse(Nip);
                 WriteLine();
-                DateOnly nacimiento = DateOnly.Parse(fecha);
-                Usuario user = new Usuario(nCuenta, nombre, apellido, nacimiento);
-                user.setNip(uint.Parse(nip));
+                DateTime nacimiento = DateTime.Parse(fecha);
+                Usuario user = new Usuario(nCuenta, nombre, apellido, nacimiento, nip);
                 usuarios.Add(user);
 
                 WriteLine("El usuario se ha creado satisfactoriamente");

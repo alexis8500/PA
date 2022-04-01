@@ -13,3 +13,5 @@
 /Users/saulalexisperezrincon/Documents/PA/Banco/obj/Debug/net6.0/ref/Banco.dll
 /Users/saulalexisperezrincon/Documents/PA/Banco/obj/Debug/net6.0/Banco.pdb
 /Users/saulalexisperezrincon/Documents/PA/Banco/obj/Debug/net6.0/Banco.genruntimeconfig.cache
+/Users/saulalexisperezrincon/Documents/PA/Banco/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/saulalexisperezrincon/Documents/PA/Banco/obj/Debug/net6.0/Banco.csproj.CopyComplete

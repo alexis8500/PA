@@ -20,18 +20,28 @@ namespace Banco
 
         static void Main(string[] args)
         {
-            var user = new Usuario(1, "Alexis", "Perez", DateOnly.Parse("04/02/2002"));
-            user.setNip(1234);
-            usuarios.Add(user);
+            JsonDeserializationEmployers();
+            UsuarioJsonDeserialization();
+            PrestamoJsonDeserialization();
 
-            var empleado = new Empleado(20, "Mario", "Quevedo", DateOnly.Parse("10/11/2000"));
-            empleados.Add(empleado);
+            if (usuarios.Count == 0)
+            {
+                var user = new Usuario(1, "Juan", "Perez", DateTime.Parse("01/01/2000"), 1234);
+                usuarios.Add(user);
+                UsuarioJsonSerialization(usuarios);
+            }
 
-            var gerente = new Gerente(30);
-            gerente.setMasterKey("password");
-            gerentes.Add(gerente);
+            if (empleados.Count == 0)
+            {
+                var empleado = new Empleado(2, "Pedro", "Perez", DateTime.Parse("01/01/2000"));
+                empleados.Add(empleado);
+                JsonSerializationEmployers(empleados);
+            }
 
+            XmlSerializationEmployers(empleados);
+            UsuarioXmlSerialization(usuarios);
             Interfaz();
+
         }
 
     }

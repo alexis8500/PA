@@ -46,7 +46,7 @@ namespace Banco
                             Write($"Ingresa tu NIP: ");
                             res = ReadLine();
                             uint nip = uint.Parse(res);
-                            if (users.ElementAt(0).validNip(nip))
+                            if (users.ElementAt(0).nip == nip)
                             {
                                 WriteLine();
                                 WriteLine($"1. Pedir Prestamo");

@@ -1,56 +1,36 @@
 using static System.IO.Directory;
 using static System.IO.Path;
 using static System.Environment;
+using System.Xml.Serialization;
 public class Usuario
 {
-    public uint nCuenta;
-    public string? nombre;
-    public string? apellido;
-    public DateOnly nacimiento;
-    private uint nip { get; set; }
 
-    public bool validNip(uint nip)
-    {
-        if (nip == this.nip)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+  [XmlElement("nCuenta")]
+  public uint nCuenta;
+  [XmlElement("nombres")]
+  public string nombre;
+  [XmlElement("apellidos")]
+  public string apellido;
+  [XmlElement("fecha_nacimiento")]
+  public DateTime nacimiento;
+  [XmlElement("nip")]
+  public uint nip;
 
-    public void setNip(uint nip)
-    {
-        this.nip = nip;
-        WorkWithFiles();
-    }
+  public Usuario()
+  {
 
-    public Usuario(uint nCuenta, string? nombre, string? apellido, DateOnly nacimiento)
-    {
+  }
+  public Usuario(uint nCuenta, string? nombre, string? apellido, DateTime nacimiento, uint nip)
+  {
         this.nCuenta = nCuenta;
         this.nombre = nombre;
         this.apellido = apellido;
         this.nacimiento = nacimiento;
-    }
+        this.nip = nip;
 
-    public void WorkWithFiles()
-    {
-        string dir = Combine(CurrentDirectory, "Datos", "Usuarios");
-        CreateDirectory(dir);
+    // saveToFile();
+  }
 
-        string textFile = Combine(dir, "Usuarios.txt");
 
-        if (File.Exists(textFile))
-        {
-            File.AppendAllText(textFile, $"num.Cuenta: {nCuenta}, Nombres: {nombre}, Apellidos: {apellido}, Nacimiento: {nacimiento}\n");
-        }
-        else
-        {
-            File.WriteAllText(textFile, $"num.Cuenta: {nCuenta}, Nombres: {nombre}, Apellidos: {apellido}, Nacimiento: {nacimiento}\n");
-        }
-
-    }
 
 }

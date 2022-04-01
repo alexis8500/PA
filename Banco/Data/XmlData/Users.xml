@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfUsuario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Usuario>
+        <nCuenta>1</nCuenta>
+        <nombres>Juan</nombres>
+        <apellidos>Perez</apellidos>
+        <fecha_nacimiento>2000-01-01T00:00:00</fecha_nacimiento>
+        <nip>1234</nip>
+    </Usuario>
+</ArrayOfUsuario>
