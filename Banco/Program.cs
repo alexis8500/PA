@@ -47,6 +47,7 @@ namespace Banco
 
             XmlSerializationEmployers(empleados);
             UsuarioXmlSerialization(usuarios);
+            GerenteXmlSerialization(gerentes);
             Interfaz();
 
         }

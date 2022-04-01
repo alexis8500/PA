@@ -117,26 +117,34 @@ namespace Banco
                                     WriteLine("No existe ese numero de gerente");
                                     return;
                                 }
-
-                                WriteLine("1. Crear un usuario");
-                                WriteLine("2. Crear un empleado");
-                                WriteLine("3. Crear un gerente");
-                                Write("Opcion : ");
+                                Write("\n ingresa tu master key : ");
                                 res = ReadLine();
-
-                                switch (int.Parse(res))
+                                if (managers.ElementAt(0).masterKey == res)
                                 {
-                                    case 1:
-                                        CrearUsuario();
-                                        break;
-                                    case 2:
-                                        crear_empleado();
-                                        break;
-                                    case 3:
-                                        crear_gerente();
-                                        break;
-                                    default:
-                                        break;
+                                    WriteLine("1. Crear un usuario");
+                                    WriteLine("2. Crear un empleado");
+                                    WriteLine("3. Crear un gerente");
+                                    Write("Opcion : ");
+                                    res = ReadLine();
+
+                                    switch (int.Parse(res))
+                                    {
+                                        case 1:
+                                            CrearUsuario();
+                                            break;
+                                        case 2:
+                                            crear_empleado();
+                                            break;
+                                        case 3:
+                                            crear_gerente();
+                                            break;  
+                                        default:
+                                            break;
+                                    }
+                                }
+                                else
+                                {
+                                    WriteLine("No es tu master key");
                                 }
                             }
                             break;
