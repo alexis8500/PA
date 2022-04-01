@@ -1,50 +1,46 @@
 using static System.IO.Directory;
 using static System.IO.Path;
 using static System.Environment;
+using System.Xml.Serialization;
 public class Gerente
 {
+
+    [XmlElement("nEmpleado")]
     public uint nEmpleado;
-    private string? masterKey;
+    [XmlElement("nombres")]
+    public string masterKey;
 
-    public void setMasterKey(string? master)
+    public Gerente()
     {
-        this.masterKey = master;
-        WorkWithFiles();
 
     }
 
-    public bool validMasterKey(string? master)
-    {
-        if (master == this.masterKey)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
-    public Gerente(uint nEmpleado)
+    public Gerente(uint nEmpleado, string masterKey)
     {
         this.nEmpleado = nEmpleado;
+        this.masterKey = masterKey;
+
+        // saveToFile();
     }
 
-        public void WorkWithFiles()
-    {
-        string dir = Combine(CurrentDirectory, "Datos", "Gerentes");
-        CreateDirectory(dir);
+    public interface IGerente
+    { }
 
-        string textFile = Combine(dir, "Gerentes.txt");
+    //     public void WorkWithFiles()
+    // {
+    //     string dir = Combine(CurrentDirectory, "Datos", "Gerentes");
+    //     CreateDirectory(dir);
 
-        if (File.Exists(textFile))
-        {
-            File.AppendAllText(textFile, $"num.Empleado: {nEmpleado}, masterKey: {masterKey}\n");
-        }
-        else
-        {
-            File.WriteAllText(textFile, $"num.Empleado: {nEmpleado}, masterKey: {masterKey}\n");
-        }
+    //     string textFile = Combine(dir, "Gerentes.txt");
 
-    }
+    //     if (File.Exists(textFile))
+    //     {
+    //         File.AppendAllText(textFile, $"num.Empleado: {nEmpleado}, masterKey: {masterKey}\n");
+    //     }
+    //     else
+    //     {
+    //         File.WriteAllText(textFile, $"num.Empleado: {nEmpleado}, masterKey: {masterKey}\n");
+    //     }
+
+    // }
 }

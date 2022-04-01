@@ -23,7 +23,14 @@ namespace Banco
             JsonDeserializationEmployers();
             UsuarioJsonDeserialization();
             PrestamoJsonDeserialization();
+            GerenteJsonDeserialization();
 
+            if (gerentes.Count == 0)
+            {
+                var gerente = new Gerente(3, "password");
+                gerentes.Add(gerente);
+                GerenteJsonSerialization(gerentes);
+            }
             if (usuarios.Count == 0)
             {
                 var user = new Usuario(1, "Juan", "Perez", DateTime.Parse("01/01/2000"), 1234);

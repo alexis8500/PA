@@ -44,7 +44,7 @@ namespace Banco
 
     private static void PrestamoXmlSerialization(List<Prestamo> prestamos)
     {
-      string dir = Combine(CurrentDirectory, "Data", "JsonData");
+      string dir = Combine(CurrentDirectory, "Data", "XmlData");
       CreateDirectory(dir);
 
       string xmlPath = Combine(dir, "History.xml");

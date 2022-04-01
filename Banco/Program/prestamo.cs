@@ -42,6 +42,8 @@ namespace Banco
 
                 Prestamo prestamo = new Prestamo(int_interes, monto_prestamo, plazo_prestamo, num_cuenta);
                 prestamos.Add(prestamo);
+                PrestamoJsonSerialization(prestamos);
+                PrestamoXmlSerialization(prestamos);
 
 
                 WriteLine("El prestamo se ha generado satisfactoriamente");
@@ -113,7 +115,7 @@ namespace Banco
                     Write("Ingresa la contraseña maestra: ");
                     res = ReadLine();
 
-                    bool pass = managers.ElementAt(0).validMasterKey(res);
+                    bool pass = managers.ElementAt(0).masterKey == res;
 
                     if (!pass)
                     {

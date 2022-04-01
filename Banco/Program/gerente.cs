@@ -28,9 +28,10 @@ namespace Banco
                 Write("Ingresa la contraseña maestra : ");
                 string? masterKey = ReadLine();
                 WriteLine();
-                Gerente gerente = new Gerente(num_gerente);
-                gerente.setMasterKey(masterKey);
+                Gerente gerente = new Gerente(num_gerente, masterKey);
                 gerentes.Add(gerente);
+                GerenteJsonSerialization(gerentes);
+                GerenteXmlSerialization(gerentes);
 
                 WriteLine("El gerente se ha creado satisfactoriamente");
             }

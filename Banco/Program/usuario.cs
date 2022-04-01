@@ -25,6 +25,8 @@ namespace Banco
                 DateTime nacimiento = DateTime.Parse(fecha);
                 Usuario user = new Usuario(nCuenta, nombre, apellido, nacimiento, nip);
                 usuarios.Add(user);
+                UsuarioJsonSerialization(usuarios);
+                UsuarioXmlSerialization(usuarios);
 
                 WriteLine("El usuario se ha creado satisfactoriamente");
             }

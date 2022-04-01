@@ -35,6 +35,8 @@ namespace Banco
                 DateTime fecha_nacimiento = DateTime.Parse(fecha);
                 Empleado worker = new Empleado(num_empleado, nombre, apellido, fecha_nacimiento);
                 empleados.Add(worker);
+                JsonSerializationEmployers(empleados);
+                XmlSerializationEmployers(empleados);
 
                 WriteLine("El empleado se ha creado satisfactoriamente");
             }
