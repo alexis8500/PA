@@ -12,6 +12,15 @@ namespace Banco
                 Write("\nIngresa el numero de cuenta : ");
                 string? ncuenta = ReadLine();
                 uint nCuenta = uint.Parse(ncuenta);
+
+            //Check if the user already exists
+            IEnumerable<Usuario> users = usuarios.Where(Usuario => Usuario.nCuenta == nCuenta);
+            if (users.LongCount() != 0)
+            {
+                WriteLine($"ese numero de cuenta ya existe");
+                return;
+            }
+
                 Write("Ingresa el nombre : ");
                 string? nombre = ReadLine();
                 Write("Ingresa el apellido : ");
