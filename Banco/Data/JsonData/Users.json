@@ -1,0 +1,16 @@
+[
+    {
+        "nCuenta": 1,
+        "nombre": "Juan",
+        "apellido": "Perez",
+        "nacimiento": "2000-01-01T00:00:00",
+        "nip": 1234
+    },
+    {
+        "nCuenta": 12,
+        "nombre": "norma",
+        "apellido": "rincon",
+        "nacimiento": "2000-03-04T00:00:00",
+        "nip": 12345
+    }
+]

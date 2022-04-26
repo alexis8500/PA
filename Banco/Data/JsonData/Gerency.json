@@ -1,0 +1,10 @@
+[
+    {
+        "nEmpleado": 3,
+        "masterKey": "password"
+    },
+    {
+        "nEmpleado": 4,
+        "masterKey": "pass"
+    }
+]

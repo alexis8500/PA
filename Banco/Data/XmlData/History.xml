@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><ArrayOfPrestamo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><Prestamo><interes>15</interes><monto>1000</monto><tiempo>36</tiempo><num_cuenta>12</num_cuenta><fecha_prestamo>2022-04-18T11:31:13.363011-05:00</fecha_prestamo></Prestamo></ArrayOfPrestamo>
