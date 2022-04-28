@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using static System.Console;
 
 namespace Banco2.Models
 {
@@ -31,5 +32,82 @@ namespace Banco2.Models
         public virtual Usuario Usuario { get; set; } = null!;
         public virtual ICollection<Pago> Pagos { get; set; }
         public virtual ICollection<SolicitudPrestamo> SolicitudPrestamos { get; set; }
+
+        public object Create(long UsuarioId, decimal saldo)
+        {
+            using (var db = new bancoContext())
+            {
+                var prestamo = new Models.Prestamo();
+
+                prestamo.UsuarioId = UsuarioId;
+
+                Write("Monto del Prestamo:");
+
+                prestamo.Cantidad = decimal.Parse(ReadLine());
+
+                if (prestamo.Cantidad > (saldo / 2))
+                {
+                    return new Exception("El Monto no puede exceder el 50% del Saldo del Usuario.");
+                }
+
+                Write("Meses:");
+                prestamo.Meses = int.Parse(ReadLine());
+
+                if (!(prestamo.Meses == 6 || prestamo.Meses == 12 || prestamo.Meses == 24 || prestamo.Meses == 36))
+                {
+                    return new Exception("Los meses solo pueden ser 6,12,24 o 36");
+                }
+
+                switch (prestamo.Meses)
+                {
+                    case 6:
+                        {
+                            prestamo.Interes = 12;
+                            break;
+                        }
+                    case 12:
+                        {
+                            prestamo.Interes = 18;
+                            break;
+                        }
+                    case 24:
+                        {
+                            prestamo.Interes = 27.9M;
+                            break;
+                        }
+                    case 36:
+                        {
+                            prestamo.Interes = 42;
+                            break;
+                        }
+                }
+
+                prestamo.PagoMes = (prestamo.Cantidad / prestamo.Meses) + ((prestamo.Cantidad / prestamo.Meses) * prestamo.Interes / 100);
+
+                var time = DateTime.Now;
+                prestamo.FechaSolicitud = DateOnly.FromDateTime(time);
+
+                prestamo.FechaLiquidacion = prestamo.FechaSolicitud.AddMonths(prestamo.Meses);
+
+                prestamo.Activo = false;
+
+                db.Prestamos.Add(prestamo);
+                db.SaveChanges();
+
+                var SoliPrestamo = new Models.SolicitudPrestamo()
+                {
+                    UsuarioId = prestamo.UsuarioId,
+                    PrestamoId = prestamo.Id,
+                    Estatus = 1
+
+                };
+
+                db.SolicitudPrestamos.Add(SoliPrestamo);
+                db.SaveChanges();
+                
+
+                return prestamo;
+            }
+        }
     }
 }

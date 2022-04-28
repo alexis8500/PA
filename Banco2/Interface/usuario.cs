@@ -29,7 +29,7 @@ namespace Banco2
                     switch (opcion)
                     {
                         case "1":
-                            // pedirPrestamo(usuario);
+                            pedirPrestamo(usuario);
                             break;
                         case "2":
                             verHistorial(usuario);
@@ -223,5 +223,46 @@ namespace Banco2
             }
         }
 
+        public static void pedirPrestamo(Models.Usuario usuario)
+        {
+            try
+            {
+                using (var db = new Models.bancoContext())
+                {
+                    var user = db.Usuarios.Where(u => u.NombreUsuario == usuario.NombreUsuario).Join(
+                        db.Usuarios, pSolicitud => pSolicitud.NombreUsuario, usuario => usuario.NombreUsuario, (pSolicitud, usuario) => new { pSolicitud, usuario }
+                    ).FirstOrDefault();
+
+                    WriteLine($"Saldo:{usuario.Saldo}");
+                    if (usuario.Saldo >= 10000)
+                    {
+
+                        var prestamo = new Models.Prestamo().Create(usuario.Id, usuario.Saldo);
+
+                        if (prestamo is Exception)
+                        {
+                            throw (Exception)prestamo;
+                        }
+                        else
+                        {
+                            WriteLine("Solicitud de Prestamo Enviada!");
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("El saldo minimo Requerido No se cumple..");
+                    }
+                }
+
+
+            }
+            catch (System.Exception ex)
+            {
+
+                WriteLine("\nError: " + ex.Message);
+                    Write("Presione una tecla para continuar...");
+                    Read();
+            }
+        }
     }
 }
