@@ -15,7 +15,7 @@ namespace Banco2.Models
     }
 
     public long Id { get; set; }
-    public long PersonaId { get; set; }
+    public int PersonaId { get; set; }
     public string NombreUsuario { get; set; } = null!;
     public string Password { get; set; } = null!;
     public decimal Saldo { get; set; }
@@ -40,17 +40,17 @@ namespace Banco2.Models
 
         if (usuario == null)
         {
-          return new Exception("Usuario o contraseña inválidos");
+          throw new Exception("Usuario o contraseña inválidos");
         }
 
         if (usuario.Activo == false)
         {
-          return new Exception("Usuario inactivo");
+          throw new Exception("Usuario inactivo");
         }
 
         if (usuario.TiempoBloqueo != null && usuario.TiempoBloqueo > DateTime.Now)
         {
-          return new Exception("Usuario bloqueado");
+          throw new Exception("Usuario bloqueado");
         }
 
         if (usuario.Password != pass)
@@ -66,7 +66,7 @@ namespace Banco2.Models
             WriteLine($"Quedan {3 - usuario.Intentos} intentos");
           }
           db.SaveChanges();
-          return new Exception("Contraseña incorrecta");
+          throw new Exception("Contraseña incorrecta");
         }
 
         usuario.Intentos = 0;
@@ -83,13 +83,13 @@ namespace Banco2.Models
 
         if (prestamo == null)
         {
-          return new Exception("No tiene prestamos activos");
+          throw new Exception("No tiene prestamos activos");
         }
 
         return prestamo;
       }
     }
-    public object Create(long id_Persona, string Pname, string Pap, string Sap, DateOnly bornday)
+    public object Create(int id_Persona, string Pname, string Pap, string Sap, DateOnly bornday)
         {
             using (var db = new bancoContext())
             {
@@ -127,7 +127,7 @@ namespace Banco2.Models
 
         if (pagos.Count == 0)
         {
-          return new Exception("No tiene pagos");
+          throw new Exception("No tiene pagos");
         }
 
         return pagos;

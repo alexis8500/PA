@@ -170,7 +170,7 @@ namespace Banco2
                         }
                         WriteLine("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
                         Write("ID Persona:");
-                        long id = long.Parse(ReadLine());
+                        int id = int.Parse(ReadLine());
                         var person = db.Solicituds.Where(u => u.PersonaId == id).FirstOrDefault();
                         if (person.Estatus != 1 || person is null)
                         {
