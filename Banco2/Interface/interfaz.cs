@@ -41,18 +41,18 @@ namespace Banco2
                     switch (opcion)
                     {
                         case 1:
-                            //login();
+                            login();
                             break;
                         case 2:
-                            //loginEmpleado();
+                            loginEmpleado();
                             break;
 
                         case 3:
-                            //loginAdmin();
+                            loginAdmin();
                             break;
 
                         case 4:
-                            //register();
+                            register();
                             break;
                         case 5:
                             exit = true;

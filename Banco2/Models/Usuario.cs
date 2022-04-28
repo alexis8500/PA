@@ -15,7 +15,7 @@ namespace Banco2.Models
     }
 
     public long Id { get; set; }
-    public int PersonaId { get; set; }
+    public long PersonaId { get; set; }
     public string NombreUsuario { get; set; } = null!;
     public string Password { get; set; } = null!;
     public decimal Saldo { get; set; }
@@ -89,6 +89,35 @@ namespace Banco2.Models
         return prestamo;
       }
     }
+    public object Create(long id_Persona, string Pname, string Pap, string Sap, DateOnly bornday)
+        {
+            using (var db = new bancoContext())
+            {
+                var user = new Models.Usuario();
+                user.PersonaId = id_Persona;
+                user.NombreUsuario = Pname + "_" + Pap + Sap;
+                user.Password = bornday.ToString("ddMMyy");
+                user.Saldo = 10000;
+                user.Activo = true;
+                user.Intentos = 0;
+                #region Randomizer
+                Random rnd = new Random();
+                long id_u;
+                bool idFlag;
+                do
+                {
+                    id_u = rnd.NextInt64(1, 999999999);
+                    idFlag = db.Usuarios.Where(u => u.Id == id_u).Any();
+                } while (idFlag == true);
+                #endregion
+                var person = db.Solicituds.Where(u => u.PersonaId == id_Persona).FirstOrDefault();
+                person.UsuarioId = id_u;
+                user.Id = id_u;
+                db.Usuarios.Add(user);
+                db.SaveChanges();
+                return user;
+            }
+        }
 
     public object verHistorial(long id)
     {
