@@ -11,19 +11,19 @@ namespace Banco2
             do
             {
                 WriteLine("\n\tBanco de Préstamos");
-                WriteLine("1. Generar empleado");
-                WriteLine("2. Pedir Vacaciones");
-                WriteLine("3. Aceptar Prestamos");
-                WriteLine("4. Generar reportes");
-                WriteLine("5. Dar de baja empleados");
-                WriteLine("6. Dar de baja usuarios");
-                WriteLine("7. Pausar prestamos");
-                WriteLine("8. Reanudar prestamos");
-                WriteLine("9. Pedir un prestamo");
-                WriteLine("10. Aprobar solicitudes de usuarios");
-                WriteLine("11. Generar gerente");
-                WriteLine("12. Añadir saldo");
-                WriteLine("13. Salir");
+                WriteLine("1.Añadir empleado");
+                WriteLine("2.Pedir vacaciones");
+                WriteLine("3.Aceptar prestamos");
+                WriteLine("4.Generar reportes");
+                WriteLine("5.Dar de baja empleados");
+                WriteLine("6.Dar de baja usuarios");
+                WriteLine("7.Pausar prestamos");
+                WriteLine("8.Reanudar prestamos");
+                WriteLine("9.Pedir un prestamo");
+                WriteLine("10.Aprobar solicitudes de usuarios");
+                WriteLine("11.Añadir gerente");
+                WriteLine("12.Añadir saldo");
+                WriteLine("13.Salir");
                 Write("Ingrese una opción: ");
                 string? opcion = ReadLine();
 
@@ -37,106 +37,88 @@ namespace Banco2
                     case "1":
                         generarEmpleado(gerente);
                         break;
+
                     case "2":
                         pedirVacaciones(gerente);
                         break;
+
                     case "3":
                         aceptarPrestamosGerente(gerente);
                         break;
+
                     case "4":
-                        generarReportes(gerente);
+                        generarReportes();
                         break;
+
                     case "5":
-                        darDeBajaEmpleados(gerente);
+                        bajaEmpleados(gerente);
                         break;
+
                     case "6":
-                        darDeBajaUsuarios(gerente);
+                        bajaUsuarios(gerente);
                         break;
+
                     case "7":
                         pausarPrestamos(gerente);
                         break;
+
                     case "8":
                         reanudarPrestamos(gerente);
                         break;
+
                     case "9":
                         pedirPrestamoGerente(gerente);
                         break;
+
                     case "10":
-                        aprobarSolicitudes(gerente);
+                        aceptarUsuarios(gerente);
                         break;
+
                     case "11":
-                        generarGerente(gerente);
+                        addGerente(gerente);
                         break;
+
                     case "12":
-                        añadirSaldo(gerente);
+                        addSaldoGerente(gerente);
                         break;
+
                     case "13":
                         salir = true;
                         break;
+
                     default:
-                        WriteLine("Opción inválida");
-                        break;
+                        throw new Exception("Opción inválida");
                 }
             } while (!salir);
         }
-
-        public static void generarEmpleado(Models.Gerente usuario)
+        public static void generarEmpleado(Models.Gerente gerente)
         {
-            using (Models.bancoContext db = new())
+            var empleado = new Models.Empleado();
+            Write("Ingrese el primer Nombre : ");
+            string? Pn = ReadLine();
+            Write("Ingrese el Segundo Nombre (Puede ser nulo) : ");
+            string? Sn = ReadLine();
+            Write("Ingrese el Primer Apellido : ");
+            string? Pa = ReadLine();
+            Write("Ingrese el Segundo Apellido : ");
+            string? Sa = ReadLine();
+            Write("Ingrese la Fecha de Nacimiento yyyy-mm-dd : ");
+            string? nacimiento = ReadLine();
+            DateOnly fechaN = DateOnly.Parse(nacimiento);
+            Write("Ingrese la contraseña : ");
+            string? pass = ReadLine();
+
+            var nEmpleado = empleado.Create(Pn, Sn, Pa, Sa, fechaN, pass);
+
+            if (nEmpleado is Exception)
             {
-                var nemployee = new Models.Empleado();
-                //Valores ingresados por el Gerente
-                WriteLine("Ingrese el primer Nombre");
-                string? primerNombre = ReadLine();
-                WriteLine("Ingrese el Segundo Nombre (Puede ser nulo)");
-                string? segundoNombre = ReadLine();
-                //Segundo Nombre, verificacion General
-                //Continuacion 
-                WriteLine("Ingrese el Primer Apellido");
-                string? primerApellido = ReadLine();
-                WriteLine("Ingrese el Segundo Apellido");
-                string? segundoApellido = ReadLine();
-                WriteLine("Ingrese su fecha de nacimiento en este formato dd-mm-yyyy:");
-                string? fechaNacimiento = ReadLine();
-                WriteLine("Escribe cual sera la contraseña del empleado");
-                string? Password = ReadLine();
-
-                if (primerNombre == null || primerApellido == null || segundoApellido == null || fechaNacimiento == null || Password == null)
-                {
-                    throw new Exception("Falta de datos");
-                }
-
-                DateOnly FechaNacimiento = DateOnly.Parse(fechaNacimiento);
-
-                //var newEmpleado = nemployee.Create(primerNombre, segundoNombre, primerApellido, segundoApellido, FechaNacimiento, Password);
-
-                // if (newEmpleado is Exception)
-                // {
-                //     throw new Exception("Error al crear el empleado");
-                // }
-
-                nemployee.PrimerNombre = primerNombre;
-                nemployee.SegundoNombre = segundoNombre;
-                nemployee.PrimerApellido = primerApellido;
-                nemployee.SegundoApellido = segundoApellido;
-                nemployee.FechaNacimiento = FechaNacimiento;
-                nemployee.Password = Password;
-
-                WriteLine("Persona creada con exito");
-
-                db.Empleados.Add(nemployee);
-
-                db.SaveChanges();
-
-                var ncuenta = new Models.Cuenta();
-                ncuenta.NCuentaEmpleado = nemployee.Id;
-                ncuenta.Tipo = 2;
-                db.Cuentas.Add(ncuenta);
-                db.SaveChanges();
+                throw new Exception("Error al crear al empleado");
             }
+
+            WriteLine("Empleado creado con exito");
         }
 
-        public static void generarGerente(Models.Gerente gerente)
+        public static void addGerente(Models.Gerente gerente)
         {
             {
                 Write("Ingrese el primer Nombre");
@@ -274,7 +256,7 @@ namespace Banco2
             WriteLine("Prestamo creado con exito");
         }
 
-        public static void darDeBajaEmpleados(Models.Gerente gerente)
+        public static void bajaEmpleados(Models.Gerente gerente)
         {
             Write("Ingrese el id del empleado a dar de baja : ");
             string? id = ReadLine();
@@ -288,7 +270,7 @@ namespace Banco2
             WriteLine("Empleado dado de baja con exito");
         }
 
-        public static void aprobarSolicitudes(Models.Gerente gerente)
+        public static void aceptarUsuarios(Models.Gerente gerente)
         {
 
             using (Models.bancoContext db = new())
@@ -335,7 +317,7 @@ namespace Banco2
                                     db.SaveChanges();
 
                                     var user = new Models.Usuario();
-                                    var rUser = user.Create(id, datos.persona.PrimerNombre, datos.persona.PrimerApellido, datos.persona.SegundoApellido, datos.persona.FechaNacimiento);
+                                    var rUser = user.Create(id, datos.persona.PrimerNombre, datos.persona.PrimerApellido, datos.persona.SegundoApellido, datos.persona.FechaNacimiento, gerente.Id);
                                     if (rUser is Exception)
                                     {
                                         throw (Exception)rUser;
@@ -356,7 +338,7 @@ namespace Banco2
             }
         }
 
-        public static void darDeBajaUsuarios(Models.Gerente gerente)
+        public static void bajaUsuarios(Models.Gerente gerente)
         {
             Write("Ingrese el id del usuario a dar de baja : ");
             string? id = ReadLine();
@@ -391,8 +373,67 @@ namespace Banco2
                 }
             }
         }
+        public static void pausarPrestamos(Models.Gerente gerente)
+        {
+            Write("Ingrese el id del prestamo a pausar : ");
+            string? id = ReadLine();
+            var rGerente = gerente.PausarPrestamo(int.Parse(id));
 
-        public static void generarReportes(Models.Gerente gerente)
+            if (rGerente is Exception)
+            {
+                throw new Exception("Error al pausar el prestamo");
+            }
+
+            WriteLine("Prestamo pausado con exito");
+        }
+
+        public static void reanudarPrestamos(Models.Gerente gerente)
+        {
+            using (var db = new Models.bancoContext())
+            {
+                var prestamos = db.Prestamos.Where(p => p.Activo == false && p.FechaPausa != null).ToList();
+
+                if (prestamos.Count is 0)
+                {
+                    throw new Exception("No hay prestamos pausados");
+                }
+                else
+                {
+                    foreach (var item in prestamos)
+                    {
+                        WriteLine($"Id del prestamo: {item.Id} fecha de pausa: {item.FechaPausa}");
+                    }
+                    Write("ID Prestamo : ");
+                    int id = int.Parse(ReadLine());
+                }
+            }
+        }
+
+        public static void checarPrestamos()
+        {
+            using (var db = new Models.bancoContext())
+            {
+                var gerente = new Models.Gerente();
+                var query = db.Prestamos.Where(p => p.Activo == false && p.FechaPausa != null).ToList();
+
+                if (query.Count is 0)
+                {
+                    // throw new Exception("No hay usuarios dados de baja");
+                }
+                else
+                {
+                    foreach (var item in query)
+                    {
+                        if (DateOnly.FromDateTime(DateTime.Now) >= item.FechaPausa.Value.AddMonths(2))
+                        {
+                            gerente.ReanudarPrestamo(item.Id);
+                        }
+                    }
+                }
+            }
+        }
+
+        static void generarReportes()
         {
             int opcion;
             bool banparse = false;
@@ -510,11 +551,14 @@ namespace Banco2
                 case 3://POR usuario
                        //OBTENER NUMERO DE CUENTA
                     WriteLine("[Escribe el numero de cuenta del usuario con el que se quiere trabajar]");
-                    long id;
-                    do
+                    var rid = ReadLine();
+
+                    if (rid is null)
                     {
-                        banparse = long.TryParse(ReadLine(), out id);
-                    } while (!banparse);
+                        throw new Exception("No se ha ingresado un numero de cuenta");
+                    }
+
+                    long id = long.Parse(rid);
 
                     using (Models.bancoContext db = new())
                     {
@@ -641,68 +685,6 @@ namespace Banco2
                     break;
             }
 
-
-        }
-
-        public static void pausarPrestamos(Models.Gerente gerente)
-        {
-            Write("Ingrese el id del prestamo a pausar : ");
-            string? id = ReadLine();
-            var rGerente = gerente.PausarPrestamo(int.Parse(id));
-
-            if (rGerente is Exception)
-            {
-                throw new Exception("Error al pausar el prestamo");
-            }
-
-            WriteLine("Prestamo pausado con exito");
-        }
-
-        public static void reanudarPrestamos(Models.Gerente gerente)
-        {
-            using (var db = new Models.bancoContext())
-            {
-                var prestamos = db.Prestamos.Where(p => p.Activo == false && p.FechaPausa != null).ToList();
-
-                if (prestamos.Count is 0)
-                {
-                    throw new Exception("No hay prestamos pausados");
-                }
-                else
-                {
-                    foreach (var item in prestamos)
-                    {
-                        WriteLine($"Id del prestamo: {item.Id} fecha de pausa: {item.FechaPausa}");
-                    }
-                    Write("ID Prestamo : ");
-                    int id = int.Parse(ReadLine());
-                }
-            }
-        }
-
-        public static void checarPrestamos()
-
-        {
-            using (var db = new Models.bancoContext())
-            {
-                var gerente = new Models.Gerente();
-                var query = db.Prestamos.Where(p => p.Activo == false && p.FechaPausa != null).ToList();
-
-                if (query.Count is 0)
-                {
-                    // throw new Exception("No hay usuarios dados de baja");
-                }
-                else
-                {
-                    foreach (var item in query)
-                    {
-                        if (DateOnly.FromDateTime(DateTime.Now) >= item.FechaPausa.Value.AddMonths(2))
-                        {
-                            gerente.ReanudarPrestamo(item.Id);
-                        }
-                    }
-                }
-            }
         }
 
         public static void AddDayVacations()
@@ -859,7 +841,7 @@ namespace Banco2
             } while (flag == false);
 
         }
-        public static void añadirSaldo(Models.Gerente gerente)
+        public static void addSaldoGerente(Models.Gerente gerente)
         {
             WriteLine("\n\tAñadir saldo");
             Write("Monto:");

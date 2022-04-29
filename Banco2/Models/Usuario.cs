@@ -105,7 +105,7 @@ namespace Banco2.Models
       }
     }
 
-    public object Create(int id_Persona, string Pname, string Pap, string Sap, DateOnly bornday)
+    public object Create(int id_Persona, string Pname, string Pap, string Sap, DateOnly bornday, int gid)
     {
       using (var db = new bancoContext())
       {
@@ -128,13 +128,14 @@ namespace Banco2.Models
         #endregion
         var person = db.Solicituds.Where(u => u.PersonaId == id_Persona).FirstOrDefault();
         person.UsuarioId = id_u;
+        person.GerenteId = gid;
         user.Id = id_u;
         db.Usuarios.Add(user);
         db.SaveChanges();
 
         var cuenta = new Models.Cuenta();
         cuenta.NCuentaUsuario = id_u;
-        cuenta.Tipo = 1;
+        cuenta.Tipo = 3;
         db.Cuentas.Add(cuenta);
         db.SaveChanges();
 
