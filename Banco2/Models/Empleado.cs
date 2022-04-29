@@ -149,5 +149,74 @@ namespace Banco2.Models
         return prestamos;
       }
     }
+    public object Create(string Pn, string Sn, string Pa, string Sa, DateOnly bornday, string pass)
+        {
+            using (var db = new bancoContext())
+            {
+                var empleado = new Empleado();
+
+                empleado.PrimerNombre = Pn;
+                bool flag = Pn.Any(char.IsDigit);
+                if (flag == true)
+                {
+                    return new Exception("Los Nombres no pueden llevar numeros..");
+                }
+                flag = empleado.PrimerNombre.Any(char.IsSymbol);
+                if (flag == true)
+                {
+                    return new Exception("Los Nombres no pueden llevar simbolos..");
+                }
+
+                empleado.SegundoNombre = Sn;
+                flag = empleado.SegundoNombre.Any(char.IsDigit);
+                if (flag == true)
+                {
+                    return new Exception("Los Nombres no pueden llevar numeros..");
+                }
+                flag = empleado.SegundoNombre.Any(char.IsSymbol);
+                if (flag == true)
+                {
+                    return new Exception("Los Nombres no pueden llevar simbolos..");
+                }
+
+                empleado.PrimerApellido = Pa;
+                flag = empleado.PrimerApellido.Any(char.IsDigit);
+                if (flag == true)
+                {
+                    return new Exception("Los Apellidos no pueden llevar numeros..");
+                }
+                flag = empleado.PrimerApellido.Any(char.IsSymbol);
+                if (flag == true)
+                {
+                    return new Exception("Los Nombres no pueden llevar simbolos..");
+                }
+
+                empleado.SegundoApellido = Sa;
+                flag = empleado.SegundoApellido.Any(char.IsDigit);
+                if (flag == true)
+                {
+                    return new Exception("Los Apellidos no pueden llevar numeros..");
+                }
+                flag = empleado.SegundoApellido.Any(char.IsSymbol);
+                if (flag == true)
+                {
+                    return new Exception("Los Nombres no pueden llevar simbolos..");
+                }
+
+                empleado.FechaNacimiento = bornday;
+                if (empleado.FechaNacimiento.Year < 1962)
+                {
+                    return new Exception("La fecha de nacimiento no puede ser menor a 1962");
+                }
+
+                empleado.Password = pass;
+
+                db.Empleados.Add(empleado);
+                db.SaveChanges();
+
+                return empleado;
+            }
+        }
   }
+  
 }

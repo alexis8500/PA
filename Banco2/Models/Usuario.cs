@@ -74,7 +74,6 @@ namespace Banco2.Models
         return usuario;
       }
     }
-
     public object verPrestamoActivo(Usuario user)
     {
       using (var db = new bancoContext())
@@ -118,7 +117,6 @@ namespace Banco2.Models
                 return user;
             }
         }
-
     public object verHistorial(long id)
     {
       using (var db = new bancoContext())

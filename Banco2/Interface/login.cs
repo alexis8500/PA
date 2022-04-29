@@ -112,6 +112,7 @@ namespace Banco2
                     WriteLine("\nBienvenido " + ((Models.Gerente)gerente).PrimerNombre + " " + ((Models.Gerente)gerente).PrimerApellido);
                     Write("Presione una tecla para continuar...");
                     Read();
+                    manager((Models.Gerente)gerente);
                 }
             }
             catch (System.Exception ex)
