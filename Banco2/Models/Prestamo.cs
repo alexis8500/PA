@@ -33,7 +33,7 @@ namespace Banco2.Models
         public virtual ICollection<Pago> Pagos { get; set; }
         public virtual ICollection<SolicitudPrestamo> SolicitudPrestamos { get; set; }
 
-        public object Create(long UsuarioId, decimal saldo)
+        public object Create(long UsuarioId, decimal saldo, decimal monto, int meses)
         {
             using (var db = new bancoContext())
             {
@@ -41,17 +41,14 @@ namespace Banco2.Models
 
                 prestamo.UsuarioId = UsuarioId;
 
-                Write("Monto del Prestamo:");
-
-                prestamo.Cantidad = decimal.Parse(ReadLine());
+                prestamo.Cantidad = monto;
 
                 if (prestamo.Cantidad > (saldo / 2))
                 {
                     return new Exception("El Monto no puede exceder el 50% del Saldo del Usuario.");
                 }
 
-                Write("Meses:");
-                prestamo.Meses = int.Parse(ReadLine());
+                prestamo.Meses = meses;
 
                 if (!(prestamo.Meses == 6 || prestamo.Meses == 12 || prestamo.Meses == 24 || prestamo.Meses == 36))
                 {
@@ -104,7 +101,7 @@ namespace Banco2.Models
 
                 db.SolicitudPrestamos.Add(SoliPrestamo);
                 db.SaveChanges();
-                
+
 
                 return prestamo;
             }

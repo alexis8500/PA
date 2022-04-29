@@ -6,6 +6,9 @@ namespace Banco2
     {
         static void Main(string[] args)
         {
+            AddDayVacations();
+            checarBajaUsuario();
+            checarPrestamos();
             interfaz();
         }
     }

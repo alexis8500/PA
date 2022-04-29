@@ -17,7 +17,8 @@ namespace Banco2
                     WriteLine("1.Pedir préstamo");
                     WriteLine("2.Ver historial de pagos");
                     WriteLine("3.Ver préstamo activo");
-                    WriteLine("4.Salir");
+                    WriteLine("4.Añadir saldo");
+                    WriteLine("5.Salir");
                     Write("Ingrese una opción: ");
                     string? opcion = ReadLine();
 
@@ -37,8 +38,11 @@ namespace Banco2
                         case "3":
                             verPrestamoActivo(usuario);
                             break;
-
                         case "4":
+                            addSaldo(usuario);
+                            break;
+
+                        case "5":
                             salir = true;
                             break;
                         default:
@@ -87,7 +91,6 @@ namespace Banco2
                 Read();
             }
         }
-
         public static void verHistorial(Models.Usuario usuario)
         {
             try
@@ -146,47 +149,28 @@ namespace Banco2
                 Read();
             }
         }
-
         public static void pedirPrestamo(Models.Usuario usuario)
         {
-            try
+            if (usuario.Saldo < 10000)
             {
-                using (var db = new Models.bancoContext())
-                {
-                    var user = db.Usuarios.Where(u => u.NombreUsuario == usuario.NombreUsuario).Join(
-                        db.Usuarios, pSolicitud => pSolicitud.NombreUsuario, usuario => usuario.NombreUsuario, (pSolicitud, usuario) => new { pSolicitud, usuario }
-                    ).FirstOrDefault();
-
-                    WriteLine($"Saldo:{usuario.Saldo}");
-                    if (usuario.Saldo >= 10000)
-                    {
-
-                        var prestamo = new Models.Prestamo().Create(usuario.Id, usuario.Saldo);
-
-                        if (prestamo is Exception)
-                        {
-                            throw (Exception)prestamo;
-                        }
-                        else
-                        {
-                            WriteLine("Solicitud de Prestamo Enviada!");
-                        }
-                    }
-                    else
-                    {
-                        throw new Exception("El saldo minimo Requerido No se cumple..");
-                    }
-                }
-
-
+                throw new Exception("Menos del saldo inicial");
             }
-            catch (System.Exception ex)
-            {
+            var prestamo = new Models.Prestamo();
+            WriteLine("\n\tPedir prestamo");
+            Write("Monto del Prestamo:");
+            var monto = decimal.Parse(ReadLine());
+            Write("Meses:");
+            var meses = int.Parse(ReadLine());
 
-                WriteLine("\nError: " + ex.Message);
-                    Write("Presione una tecla para continuar...");
-                    Read();
-            }
+            var rPrestamo = prestamo.Create(usuario.Id, usuario.Saldo, monto, meses);
+        }
+        public static void addSaldo(Models.Usuario usuario)
+        {
+            WriteLine("\n\tAñadir saldo");
+            Write("Monto:");
+            var monto = decimal.Parse(ReadLine());
+            var rSaldo = usuario.AddSaldo(usuario.Id, monto);
+            WriteLine("Saldo actualizado");
         }
     }
 }

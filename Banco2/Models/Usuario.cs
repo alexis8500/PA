@@ -32,25 +32,25 @@ namespace Banco2.Models
     public virtual ICollection<SolicitudPrestamo> SolicitudPrestamos { get; set; }
     public virtual ICollection<Solicitud> Solicituds { get; set; }
 
-    public object login(string user, string pass)
+    public object login(long id, string pass)
     {
       using (var db = new bancoContext())
       {
-        var usuario = db.Usuarios.Where(u => u.NombreUsuario == user).FirstOrDefault();
+        var usuario = db.Usuarios.Where(u => u.Id == id).FirstOrDefault();
 
         if (usuario == null)
         {
-          throw new Exception("Usuario o contraseña inválidos");
+          return new Exception("Usuario o contraseña inválidos");
         }
 
         if (usuario.Activo == false)
         {
-          throw new Exception("Usuario inactivo");
+          return new Exception("Usuario inactivo");
         }
 
         if (usuario.TiempoBloqueo != null && usuario.TiempoBloqueo > DateTime.Now)
         {
-          throw new Exception("Usuario bloqueado");
+          return new Exception("Usuario bloqueado");
         }
 
         if (usuario.Password != pass)
@@ -66,7 +66,7 @@ namespace Banco2.Models
             WriteLine($"Quedan {3 - usuario.Intentos} intentos");
           }
           db.SaveChanges();
-          throw new Exception("Contraseña incorrecta");
+          return new Exception("Contraseña incorrecta");
         }
 
         usuario.Intentos = 0;
@@ -74,6 +74,7 @@ namespace Banco2.Models
         return usuario;
       }
     }
+
     public object verPrestamoActivo(Usuario user)
     {
       using (var db = new bancoContext())
@@ -82,41 +83,13 @@ namespace Banco2.Models
 
         if (prestamo == null)
         {
-          throw new Exception("No tiene prestamos activos");
+          return new Exception("No tiene prestamos activos");
         }
 
         return prestamo;
       }
     }
-    public object Create(int id_Persona, string Pname, string Pap, string Sap, DateOnly bornday)
-        {
-            using (var db = new bancoContext())
-            {
-                var user = new Models.Usuario();
-                user.PersonaId = id_Persona;
-                user.NombreUsuario = Pname + "_" + Pap + Sap;
-                user.Password = bornday.ToString("ddMMyy");
-                user.Saldo = 10000;
-                user.Activo = true;
-                user.Intentos = 0;
-                #region Randomizer
-                Random rnd = new Random();
-                long id_u;
-                bool idFlag;
-                do
-                {
-                    id_u = rnd.NextInt64(1, 999999999);
-                    idFlag = db.Usuarios.Where(u => u.Id == id_u).Any();
-                } while (idFlag == true);
-                #endregion
-                var person = db.Solicituds.Where(u => u.PersonaId == id_Persona).FirstOrDefault();
-                person.UsuarioId = id_u;
-                user.Id = id_u;
-                db.Usuarios.Add(user);
-                db.SaveChanges();
-                return user;
-            }
-        }
+
     public object verHistorial(long id)
     {
       using (var db = new bancoContext())
@@ -125,10 +98,62 @@ namespace Banco2.Models
 
         if (pagos.Count == 0)
         {
-          throw new Exception("No tiene pagos");
+          return new Exception("No tiene pagos");
         }
 
         return pagos;
+      }
+    }
+
+    public object Create(int id_Persona, string Pname, string Pap, string Sap, DateOnly bornday)
+    {
+      using (var db = new bancoContext())
+      {
+        var user = new Models.Usuario();
+        user.PersonaId = id_Persona;
+        user.NombreUsuario = Pname + "_" + Pap + Sap;
+        user.Password = bornday.ToString("ddMMyy");
+        user.Saldo = 10000;
+        user.Activo = true;
+        user.Intentos = 0;
+        #region Randomizer
+        Random rnd = new Random();
+        long id_u;
+        bool idFlag;
+        do
+        {
+          id_u = rnd.NextInt64(1, 999999999);
+          idFlag = db.Usuarios.Where(u => u.Id == id_u).Any();
+        } while (idFlag == true);
+        #endregion
+        var person = db.Solicituds.Where(u => u.PersonaId == id_Persona).FirstOrDefault();
+        person.UsuarioId = id_u;
+        user.Id = id_u;
+        db.Usuarios.Add(user);
+        db.SaveChanges();
+
+        var cuenta = new Models.Cuenta();
+        cuenta.NCuentaUsuario = id_u;
+        cuenta.Tipo = 1;
+        db.Cuentas.Add(cuenta);
+        db.SaveChanges();
+
+        return user;
+      }
+    }
+
+    public object AddSaldo(long id, decimal saldo)
+    {
+      using (var db = new bancoContext())
+      {
+        var user = db.Usuarios.Where(u => u.Id == id).FirstOrDefault();
+        if (user == null)
+        {
+          return new Exception("Usuario no encontrado");
+        }
+        user.Saldo += saldo;
+        db.SaveChanges();
+        return user;
       }
     }
   }

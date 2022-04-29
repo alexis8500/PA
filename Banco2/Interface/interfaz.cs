@@ -24,10 +24,8 @@ namespace Banco2
                 {
                     WriteLine("\n\tBanco de Préstamos");
                     WriteLine("1. Iniciar sesión");
-                    WriteLine("2. Iniciar sesión como empleado");
-                    WriteLine("3. Iniciar sesión como gerente");
-                    WriteLine("4. Registrarse");
-                    WriteLine("5. Salir");
+                    WriteLine("2. Registrarse");
+                    WriteLine("3. Salir");
                     Write("Ingrese una opción : ");
                     string? res = ReadLine();
 
@@ -44,17 +42,9 @@ namespace Banco2
                             login();
                             break;
                         case 2:
-                            loginEmpleado();
-                            break;
-
-                        case 3:
-                            loginAdmin();
-                            break;
-
-                        case 4:
                             register();
                             break;
-                        case 5:
+                        case 3:
                             exit = true;
                             break;
                         default:

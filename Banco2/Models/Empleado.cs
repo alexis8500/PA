@@ -45,7 +45,6 @@ namespace Banco2.Models
         var prestamo = db.Prestamos.Where(p => p.Id == id).FirstOrDefault();
         var prestamos = db.Prestamos.Where(p => p.UsuarioId == uid).ToList();
         var solicitud = db.SolicitudPrestamos.Where(p => p.Id == sid).FirstOrDefault();
-        bool flag = false;
         int aid = 0;
 
         if (prestamo == null || solicitud == null || prestamos.Count >= 3)
@@ -57,7 +56,6 @@ namespace Banco2.Models
         {
           if (item.Activo == true)
           {
-            flag = true;
             aid = item.Id;
           }
         }
@@ -75,14 +73,31 @@ namespace Banco2.Models
           return new Exception("No estas en el ultimo pago");
         }
 
-        if (prestamo.FechaSolicitud.AddDays(2) > DateOnly.FromDateTime(DateTime.Now))
+        if (prestamo.FechaSolicitud.AddDays(2) < DateOnly.FromDateTime(DateTime.Now))
         {
+          solicitud.Estatus = 3;
+          db.SaveChanges();
           return new Exception("No se puede aceptar el prestamo antes de 2 días");
         }
 
         solicitud.Estatus = 2;
         prestamo.FechaAprobacion = DateOnly.FromDateTime(DateTime.Now);
         prestamo.FechaLiquidacion = DateOnly.FromDateTime(DateTime.Now.AddMonths(prestamo.Meses));
+        prestamo.Activo = true;
+
+        for (int i = 0; i < prestamo.Meses; i++)
+        {
+          var pago = new Pago
+          {
+            PrestamoId = prestamo.Id,
+            UsuarioId = prestamo.UsuarioId,
+            Cantidad = prestamo.PagoMes / prestamo.Meses,
+            Fecha = DateOnly.FromDateTime(DateTime.Now.AddMonths(i + 1))
+          };
+
+          db.Pagos.Add(pago);
+        }
+
         db.SaveChanges();
         return prestamo;
       }
@@ -149,74 +164,84 @@ namespace Banco2.Models
         return prestamos;
       }
     }
-    public object Create(string Pn, string Sn, string Pa, string Sa, DateOnly bornday, string pass)
+
+    public object Create(string Pn, string? Sn, string Pa, string Sa, DateOnly nacimiento, string pass)
+    {
+      using (var db = new Models.bancoContext())
+      {
+        if (Pn == null || Pa == null || Sa == null || nacimiento == null || pass == null)
         {
-            using (var db = new bancoContext())
-            {
-                var empleado = new Empleado();
-
-                empleado.PrimerNombre = Pn;
-                bool flag = Pn.Any(char.IsDigit);
-                if (flag == true)
-                {
-                    return new Exception("Los Nombres no pueden llevar numeros..");
-                }
-                flag = empleado.PrimerNombre.Any(char.IsSymbol);
-                if (flag == true)
-                {
-                    return new Exception("Los Nombres no pueden llevar simbolos..");
-                }
-
-                empleado.SegundoNombre = Sn;
-                flag = empleado.SegundoNombre.Any(char.IsDigit);
-                if (flag == true)
-                {
-                    return new Exception("Los Nombres no pueden llevar numeros..");
-                }
-                flag = empleado.SegundoNombre.Any(char.IsSymbol);
-                if (flag == true)
-                {
-                    return new Exception("Los Nombres no pueden llevar simbolos..");
-                }
-
-                empleado.PrimerApellido = Pa;
-                flag = empleado.PrimerApellido.Any(char.IsDigit);
-                if (flag == true)
-                {
-                    return new Exception("Los Apellidos no pueden llevar numeros..");
-                }
-                flag = empleado.PrimerApellido.Any(char.IsSymbol);
-                if (flag == true)
-                {
-                    return new Exception("Los Nombres no pueden llevar simbolos..");
-                }
-
-                empleado.SegundoApellido = Sa;
-                flag = empleado.SegundoApellido.Any(char.IsDigit);
-                if (flag == true)
-                {
-                    return new Exception("Los Apellidos no pueden llevar numeros..");
-                }
-                flag = empleado.SegundoApellido.Any(char.IsSymbol);
-                if (flag == true)
-                {
-                    return new Exception("Los Nombres no pueden llevar simbolos..");
-                }
-
-                empleado.FechaNacimiento = bornday;
-                if (empleado.FechaNacimiento.Year < 1962)
-                {
-                    return new Exception("La fecha de nacimiento no puede ser menor a 1962");
-                }
-
-                empleado.Password = pass;
-
-                db.Empleados.Add(empleado);
-                db.SaveChanges();
-
-                return empleado;
-            }
+          return new Exception("Algun dato es nulo");
         }
+
+        bool flag = Pn.Any(char.IsDigit);
+        if (flag == true)
+        {
+          return new Exception("Los Nombres no pueden llevar numeros..");
+        }
+        flag = Pn.Any(char.IsSymbol);
+        if (flag == true)
+        {
+          return new Exception("Los Nombres no pueden llevar simbolos..");
+        }
+
+        if (Sn is not null)
+        {
+          flag = Sn.Any(char.IsDigit);
+          if (flag == true)
+          {
+            return new Exception("Los Nombres no pueden llevar numeros..");
+          }
+          flag = Sn.Any(char.IsSymbol);
+          if (flag == true)
+          {
+            return new Exception("Los Nombres no pueden llevar simbolos..");
+          }
+        }
+
+        flag = Pa.Any(char.IsDigit);
+        if (flag == true)
+        {
+          return new Exception("Los Apellidos no pueden llevar numeros..");
+        }
+        flag = Pa.Any(char.IsSymbol);
+        if (flag == true)
+        {
+          return new Exception("Los Apellidos no pueden llevar simbolos..");
+        }
+
+        flag = Sa.Any(char.IsDigit);
+        if (flag == true)
+        {
+          return new Exception("Los Apellidos no pueden llevar numeros..");
+        }
+        flag = Sa.Any(char.IsSymbol);
+        if (flag == true)
+        {
+          return new Exception("Los Apellidos no pueden llevar simbolos..");
+        }
+
+        var empleado = new Models.Empleado();
+
+        empleado.PrimerNombre = Pn;
+        empleado.SegundoNombre = Sn;
+        empleado.PrimerApellido = Pa;
+        empleado.SegundoApellido = Sa;
+        empleado.Activo = true;
+        empleado.FechaNacimiento = nacimiento;
+        empleado.Password = pass;
+
+        db.Empleados.Add(empleado);
+        db.SaveChanges();
+
+        var cuenta = new Models.Cuenta();
+        cuenta.NCuentaEmpleado = empleado.Id;
+        cuenta.Tipo = 2;
+        db.Cuentas.Add(cuenta);
+        db.SaveChanges();
+
+        return empleado;
+      }
+    }
   }
-  
 }
