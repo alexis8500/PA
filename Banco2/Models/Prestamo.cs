@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using static System.Console;
 
 namespace Banco2.Models
 {
@@ -106,5 +105,6 @@ namespace Banco2.Models
                 return prestamo;
             }
         }
+
     }
 }
