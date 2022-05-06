@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "BolsitasCode/1.0.0": {
+        "dependencies": {
+          "BolsitasLib": "1.0.0"
+        },
+        "runtime": {
+          "BolsitasCode.dll": {}
+        }
+      },
+      "BolsitasLib/1.0.0": {
+        "runtime": {
+          "BolsitasLib.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BolsitasCode/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BolsitasLib/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,12 @@
+/Users/saulalexisperezrincon/Documents/PA/Bolsitas/BolsitasLib/bin/Debug/net6.0/BolsitasLib.deps.json
+/Users/saulalexisperezrincon/Documents/PA/Bolsitas/BolsitasLib/bin/Debug/net6.0/BolsitasLib.dll
+/Users/saulalexisperezrincon/Documents/PA/Bolsitas/BolsitasLib/bin/Debug/net6.0/ref/BolsitasLib.dll
+/Users/saulalexisperezrincon/Documents/PA/Bolsitas/BolsitasLib/bin/Debug/net6.0/BolsitasLib.pdb
+/Users/saulalexisperezrincon/Documents/PA/Bolsitas/BolsitasLib/obj/Debug/net6.0/BolsitasLib.csproj.AssemblyReference.cache
+/Users/saulalexisperezrincon/Documents/PA/Bolsitas/BolsitasLib/obj/Debug/net6.0/BolsitasLib.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saulalexisperezrincon/Documents/PA/Bolsitas/BolsitasLib/obj/Debug/net6.0/BolsitasLib.AssemblyInfoInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/Bolsitas/BolsitasLib/obj/Debug/net6.0/BolsitasLib.AssemblyInfo.cs
+/Users/saulalexisperezrincon/Documents/PA/Bolsitas/BolsitasLib/obj/Debug/net6.0/BolsitasLib.csproj.CoreCompileInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/Bolsitas/BolsitasLib/obj/Debug/net6.0/BolsitasLib.dll
+/Users/saulalexisperezrincon/Documents/PA/Bolsitas/BolsitasLib/obj/Debug/net6.0/ref/BolsitasLib.dll
+/Users/saulalexisperezrincon/Documents/PA/Bolsitas/BolsitasLib/obj/Debug/net6.0/BolsitasLib.pdb
