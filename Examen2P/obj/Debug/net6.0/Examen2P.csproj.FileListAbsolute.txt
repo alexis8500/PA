@@ -1,0 +1,15 @@
+/Users/saulalexisperezrincon/Documents/PA/Examen2P/bin/Debug/net6.0/Examen2P
+/Users/saulalexisperezrincon/Documents/PA/Examen2P/bin/Debug/net6.0/Examen2P.deps.json
+/Users/saulalexisperezrincon/Documents/PA/Examen2P/bin/Debug/net6.0/Examen2P.runtimeconfig.json
+/Users/saulalexisperezrincon/Documents/PA/Examen2P/bin/Debug/net6.0/Examen2P.dll
+/Users/saulalexisperezrincon/Documents/PA/Examen2P/bin/Debug/net6.0/ref/Examen2P.dll
+/Users/saulalexisperezrincon/Documents/PA/Examen2P/bin/Debug/net6.0/Examen2P.pdb
+/Users/saulalexisperezrincon/Documents/PA/Examen2P/obj/Debug/net6.0/Examen2P.csproj.AssemblyReference.cache
+/Users/saulalexisperezrincon/Documents/PA/Examen2P/obj/Debug/net6.0/Examen2P.GeneratedMSBuildEditorConfig.editorconfig
+/Users/saulalexisperezrincon/Documents/PA/Examen2P/obj/Debug/net6.0/Examen2P.AssemblyInfoInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/Examen2P/obj/Debug/net6.0/Examen2P.AssemblyInfo.cs
+/Users/saulalexisperezrincon/Documents/PA/Examen2P/obj/Debug/net6.0/Examen2P.csproj.CoreCompileInputs.cache
+/Users/saulalexisperezrincon/Documents/PA/Examen2P/obj/Debug/net6.0/Examen2P.dll
+/Users/saulalexisperezrincon/Documents/PA/Examen2P/obj/Debug/net6.0/ref/Examen2P.dll
+/Users/saulalexisperezrincon/Documents/PA/Examen2P/obj/Debug/net6.0/Examen2P.pdb
+/Users/saulalexisperezrincon/Documents/PA/Examen2P/obj/Debug/net6.0/Examen2P.genruntimeconfig.cache
