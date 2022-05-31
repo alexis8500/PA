@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "Hash": "YA1AFSW4yYaOQ24GZfanVOkaeS+DqNfJmbXqpX1TcKU=",
+  "Source": "P12",
+  "BasePath": "_content/P12",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "P12/wwwroot",
+      "Source": "P12",
+      "ContentRoot": "/Users/saulalexisperezrincon/Documents/PA/P12/wwwroot/",
+      "BasePath": "_content/P12",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/saulalexisperezrincon/Documents/PA/P12/wwwroot/index.html",
+      "SourceId": "P12",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/saulalexisperezrincon/Documents/PA/P12/wwwroot/",
+      "BasePath": "_content/P12",
+      "RelativePath": "index.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/index.html"
+    }
+  ]
+}
