@@ -66,7 +66,6 @@ namespace Integrador
                 return prestamo;
             }
         }
-
         public object DenegarPrestamo(int sid)
         {
             using (var db = new bancoContext())
@@ -83,7 +82,6 @@ namespace Integrador
                 return solicitud;
             }
         }
-
         public object UltimoPrestamo(int id)
         {
             using (var db = new bancoContext())
@@ -98,7 +96,6 @@ namespace Integrador
                 return prestamo;
             }
         }
-
         public object UltimosPrestamos(int id)
         {
             using (var db = new bancoContext())
@@ -113,7 +110,6 @@ namespace Integrador
                 return prestamos;
             }
         }
-
         public object PrestamosAceptados(int id)
         {
             using (var db = new bancoContext())

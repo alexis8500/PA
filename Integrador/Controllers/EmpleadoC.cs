@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-
 namespace Integrador.Controllers;
 
 [ApiController]
@@ -7,6 +6,7 @@ namespace Integrador.Controllers;
 
 public class EmpleadoController : ControllerBase
 {
+    #region GETS
     [HttpGet(Name = "GetAllEmpleados")]
     public IActionResult GetAllEmpleados()
     {
@@ -56,4 +56,31 @@ public class EmpleadoController : ControllerBase
         }
         return Ok(empleado);
     }
+    #endregion
+
+    #region POSTS
+    [HttpPost(Name = "CreateEmpleado")]
+    public IActionResult Create([FromBody] EmpleadoCreate empleado)
+    {
+        if (empleado == null)
+        {
+            return BadRequest();
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        Empleado newEmpleado = new EmpleadoCreate().Create(empleado);
+
+
+        if (newEmpleado.Id == 0)
+        {
+            return StatusCode(500);
+        }
+
+        return CreatedAtRoute("GetEmpleado", new { id = newEmpleado.Id }, empleado);
+    }
+    #endregion
 }
