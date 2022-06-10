@@ -19,10 +19,10 @@ public class UsuarioController : ControllerBase
     {
         var users = new Usuario().GetAll();
 
-        if (users == null)
-        {
-            return StatusCode(500);
-        }
+        // if (users == null)
+        // {
+        //   return StatusCode(500);
+        // }
 
         return Ok(users);
     }
@@ -42,7 +42,7 @@ public class UsuarioController : ControllerBase
     [HttpGet("{id}/prestamo", Name = "GetPrestamoActivo")]
     public IActionResult GetPrestamoActivo(long id)
     {
-        var prestamo = new Usuario().PrestamoActivo(id);
+        var prestamo = new Usuario().GetActivePrestamo(id);
 
         if (prestamo == null)
         {
@@ -59,7 +59,7 @@ public class UsuarioController : ControllerBase
     [HttpGet("{id}/historial", Name = "GetHistorial")]
     public IActionResult GetHistorial(long id)
     {
-        var prestamo = new Usuario().Historial(id);
+        var prestamo = new Usuario().GetPayHistory(id);
 
         if (prestamo == null)
         {
@@ -72,6 +72,40 @@ public class UsuarioController : ControllerBase
         }
 
         return Ok(prestamo);
+    }
+
+    [HttpGet("lastPrestamo", Name = "GetUsersLastPrestamo")]
+    public IActionResult GetUsersLastPrestamo()
+    {
+        var prestamos = new Usuario().GetListOfUsersWithLastPrestamo();
+
+        if (prestamos == null)
+        {
+            var res = new
+            {
+                message = "No hay usuarios con prestamos",
+            };
+
+            return NotFound(res);
+        }
+        return Ok(prestamos);
+    }
+
+    [HttpGet("notEnoughMoney", Name = "GetUsersNotEnoughMoney")]
+    public IActionResult GetUsersNotEnoughMoney()
+    {
+        var prestamos = new Usuario().GetListOfUserWithNotEnoughMoney();
+
+        if (prestamos == null)
+        {
+            var res = new
+            {
+                message = "No hay usuarios con insuficiente dinero",
+            };
+
+            return NotFound(res);
+        }
+        return Ok(prestamos);
     }
     #endregion
 }

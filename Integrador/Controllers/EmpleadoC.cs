@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+
 namespace Integrador.Controllers;
 
 [ApiController]
@@ -6,7 +7,7 @@ namespace Integrador.Controllers;
 
 public class EmpleadoController : ControllerBase
 {
-    #region GETS
+    #region Get
     [HttpGet(Name = "GetAllEmpleados")]
     public IActionResult GetAllEmpleados()
     {
@@ -18,6 +19,19 @@ public class EmpleadoController : ControllerBase
         }
 
         return Ok(empleados);
+    }
+
+    [HttpGet("prestamosToAccept", Name = "GetPrestamosToAcceptEmpleado")]
+    public IActionResult GetPrestamosToAcceptEmpleado()
+    {
+        var prestamos = new Empleado().GetPrestamosToAccept();
+
+        if (prestamos == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(prestamos);
     }
 
     [HttpGet("{id}", Name = "GetEmpleado")]
@@ -32,8 +46,8 @@ public class EmpleadoController : ControllerBase
         return Ok(empleado);
     }
 
-    [HttpGet("{id}/prestamos", Name = "GetAllPrestamos")]
-    public IActionResult GetAllPrestamos(int id)
+    [HttpGet("{id}/prestamos", Name = "GetAllEmpleadoPrestamos")]
+    public IActionResult GetAllEmpleadoPrestamos(int id)
     {
         var empleados = new EmpleadoFunctions().UltimosPrestamos(id);
 
@@ -45,8 +59,8 @@ public class EmpleadoController : ControllerBase
         return Ok(empleados);
     }
 
-    [HttpGet("{id}/prestamo", Name = "GetPrestamo")]
-    public IActionResult GetPrestamo(int id)
+    [HttpGet("{id}/prestamo", Name = "GetEmpleadoPrestamo")]
+    public IActionResult GetEmpleadoPrestamo(int id)
     {
         var empleado = new EmpleadoFunctions().UltimoPrestamo(id);
 
@@ -56,9 +70,41 @@ public class EmpleadoController : ControllerBase
         }
         return Ok(empleado);
     }
+
+    [HttpGet("calculate", Name = "GetCalculate")]
+    public IActionResult GetCalculate([FromBody] CalculatePrestamo calculate)
+    {
+        if (calculate == null)
+        {
+            return BadRequest();
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var empleado = new CalculatePrestamo().Calculate(calculate);
+
+        if (empleado == null)
+        {
+            return NotFound();
+        }
+
+        if (empleado == "Greater than 50%")
+        {
+            var response = new
+            {
+                message = "Greater than 50%"
+            };
+
+            return BadRequest(response);
+        }
+
+        return Ok(empleado);
+    }
     #endregion
 
-    #region POSTS
     [HttpPost(Name = "CreateEmpleado")]
     public IActionResult Create([FromBody] EmpleadoCreate empleado)
     {
@@ -80,7 +126,49 @@ public class EmpleadoController : ControllerBase
             return StatusCode(500);
         }
 
-        return CreatedAtRoute("GetEmpleado", new { id = newEmpleado.Id }, empleado);
+        return CreatedAtRoute("GetEmpleado", new { id = newEmpleado.Id }, newEmpleado);
     }
-    #endregion
+
+    [HttpPut("{id}", Name = "UpdateEmpleado")]
+    public IActionResult Update(int id, [FromBody] EmpleadoUpdate empleado)
+    {
+        if (empleado == null)
+        {
+            return BadRequest();
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        Empleado newEmpleado = new EmpleadoUpdate().Update(id, empleado);
+
+        if (newEmpleado == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(newEmpleado);
+    }
+
+    [HttpDelete("{id}", Name = "DeleteEmpleado")]
+    public IActionResult Delete(int id)
+    {
+        var empleado = new Empleado().Get(id);
+
+        if (empleado == null)
+        {
+            return NotFound();
+        }
+
+        var deleted = new Empleado().Delete(id);
+
+        if (deleted == null)
+        {
+            return StatusCode(500);
+        }
+
+        return StatusCode(200, deleted);
+    }
 }

@@ -31,4 +31,83 @@ public class PersonaController : ControllerBase
         }
         return Ok(persona);
     }
-} 
+
+    [HttpPost(Name = "CreatePersona")]
+    public IActionResult Create([FromBody] PersonaCreate persona)
+    {
+        if (persona == null)
+        {
+            return BadRequest();
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var PersonaValidations = new PersonaValidations();
+
+        bool curp = PersonaValidations.VerifyCURP(persona.Curp, persona.PrimerNombre, persona.PrimerApellido, persona.SegundoApellido, persona.FechaNacimiento);
+
+        if (curp == false)
+        {
+            var res = new
+            {
+                message = "La CURP no es valida"
+            };
+            return BadRequest(res);
+        }
+
+        var personaCreated = new PersonaCreate().Create(persona);
+
+        if (personaCreated == null)
+        {
+            return StatusCode(500);
+        }
+
+        return CreatedAtRoute("GetPersona", new { id = personaCreated.Id }, personaCreated);
+    }
+
+    [HttpPut("{id}", Name = "UpdatePersona")]
+    public IActionResult Update(int id, [FromBody] PersonaUpdate persona)
+    {
+        if (persona == null)
+        {
+            return BadRequest();
+        }
+
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+
+        var personaUpdated = new PersonaUpdate().Update(id, persona);
+
+        if (personaUpdated == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(personaUpdated);
+    }
+
+    [HttpDelete("{id}", Name = "DeletePersona")]
+    public IActionResult Delete(int id)
+    {
+        var persona = new Persona().Get(id);
+
+        if (persona == null)
+        {
+            return NotFound();
+        }
+
+        var deleted = new Persona().Delete(id);
+
+        if (deleted == null)
+        {
+            return StatusCode(500);
+        }
+
+        return Ok(deleted);
+    }
+}

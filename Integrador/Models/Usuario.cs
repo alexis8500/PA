@@ -26,7 +26,7 @@ namespace Integrador
         public DateTime? FechaBaja { get; set; }
 
         public virtual Persona Persona { get; set; } = null!;
-        public virtual ICollection<Cuenta> Cuenta { get; set; }
+        // public virtual ICollection<Cuenta> Cuenta { get; set; }
         public virtual ICollection<Pago> Pagos { get; set; }
         public virtual ICollection<Prestamo> Prestamos { get; set; }
         public virtual ICollection<SolicitudPrestamo> SolicitudPrestamos { get; set; }
@@ -54,6 +54,97 @@ namespace Integrador
             }
         }
 
+        public object GetActivePrestamo(long id)
+        {
+            using (var db = new bancoContext())
+            {
+                var prestamo = db.Prestamos.Where(p => p.UsuarioId == id && p.Activo == true).FirstOrDefault();
+
+                if (prestamo == null)
+                {
+                    return null;
+                }
+
+                return prestamo;
+            }
+        }
+
+        public object GetPayHistory(long id)
+        {
+            using (var db = new bancoContext())
+            {
+                var pagos = db.Pagos.Where(p => p.UsuarioId == id).ToList();
+
+                if (pagos.Count == 0)
+                {
+                    return null;
+                }
+
+                return pagos;
+            }
+        }
+
+        public object GetListOfUsersWithLastPrestamo()
+        {
+            using (var db = new bancoContext())
+            {
+                var prestamos = db.Prestamos.OrderByDescending(p => p.UsuarioId).ToList();
+
+                if (prestamos.Count == 0)
+                {
+                    return null;
+                }
+
+                var dict = new Dictionary<long, int>();
+                var list = new List<object>();
+
+                foreach (var prestamo in prestamos)
+                {
+                    if (!dict.ContainsKey(prestamo.UsuarioId))
+                    {
+                        dict.Add(prestamo.UsuarioId, 0);
+                        var prestamo1 = db.Prestamos.Where(p => p.UsuarioId == prestamo.UsuarioId).OrderBy(p => p.Id).LastOrDefault();
+                        var usuario = db.Usuarios.Find(prestamo.UsuarioId);
+
+                        var res = new { Id = usuario.Id, NombreUsuario = usuario.NombreUsuario, Saldo = usuario.Saldo, Activo = usuario.Activo, UltimoPrestamo = prestamo1.Id };
+
+                        list.Add(res);
+                    }
+                }
+
+                return list;
+            }
+        }
+
+        public object GetListOfUserWithNotEnoughMoney()
+        {
+            using (var db = new bancoContext())
+            {
+                var prestamos = db.Prestamos.Where(p => p.Activo == true).ToList();
+                var lista = new List<object>();
+                // Print all the Prestamos
+                foreach (var prestamo in prestamos)
+                {
+                    var usuario = db.Usuarios.Find(prestamo.UsuarioId);
+
+                    if (usuario.Saldo < prestamo.PagoMes)
+                    {
+                        var res = new
+                        {
+                            Id = usuario.Id,
+                            NombreUsuario = usuario.NombreUsuario,
+                            Saldo = usuario.Saldo,
+                            PrestamoId = prestamo.Id,
+                            PagoMes = prestamo.PagoMes,
+                        };
+
+                        lista.Add(res);
+                    }
+                }
+
+                return lista;
+            }
+        }
         public object login(long id, string pass)
         {
             using (var db = new bancoContext())
@@ -97,36 +188,6 @@ namespace Integrador
             }
         }
 
-        public object PrestamoActivo(long id)
-        {
-            using (var db = new bancoContext())
-            {
-                var prestamo = db.Prestamos.Where(p => p.UsuarioId == id && p.Activo == true).FirstOrDefault();
-
-                if (prestamo == null)
-                {
-                    return null;
-                }
-
-                return prestamo;
-            }
-        }
-
-        public object Historial(long id)
-        {
-            using (var db = new bancoContext())
-            {
-                var pagos = db.Pagos.Where(p => p.UsuarioId == id).ToList();
-
-                if (pagos.Count == 0)
-                {
-                    return null;
-                }
-
-                return pagos;
-            }
-        }
-
         public object Create(int id_Persona, string Pname, string Pap, string Sap, DateOnly bornday, int gid)
         {
             using (var db = new bancoContext())
@@ -155,11 +216,11 @@ namespace Integrador
                 db.Usuarios.Add(user);
                 db.SaveChanges();
 
-                var cuenta = new Cuenta();
-                cuenta.NCuentaUsuario = id_u;
-                cuenta.Tipo = 3;
-                db.Cuentas.Add(cuenta);
-                db.SaveChanges();
+                // var cuenta = new Cuenta();
+                // cuenta.NCuentaUsuario = id_u;
+                // cuenta.Tipo = 3;
+                // db.Cuentas.Add(cuenta);
+                // db.SaveChanges();
 
                 return user;
             }

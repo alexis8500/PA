@@ -16,7 +16,7 @@ namespace Integrador
         {
         }
 
-        public virtual DbSet<Cuenta> Cuentas { get; set; } = null!;
+        // public virtual DbSet<Cuenta> Cuentas { get; set; } = null!;
         public virtual DbSet<Empleado> Empleados { get; set; } = null!;
         public virtual DbSet<Gerente> Gerentes { get; set; } = null!;
         public virtual DbSet<Pago> Pagos { get; set; } = null!;
@@ -37,37 +37,37 @@ namespace Integrador
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Cuenta>(entity =>
-            {
-                entity.ToTable("cuentas");
+            // modelBuilder.Entity<Cuenta>(entity =>
+            // {
+            //   entity.ToTable("cuentas");
 
-                entity.HasIndex(e => e.Id, "IX_cuentas_id")
-                    .IsUnique();
+            //   entity.HasIndex(e => e.Id, "IX_cuentas_id")
+            //             .IsUnique();
 
-                entity.Property(e => e.Id).HasColumnName("id");
+            //   entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.NCuentaEmpleado).HasColumnName("n_cuenta_empleado");
+            //   entity.Property(e => e.NCuentaEmpleado).HasColumnName("n_cuenta_empleado");
 
-                entity.Property(e => e.NCuentaGerente).HasColumnName("n_cuenta_gerente");
+            //   entity.Property(e => e.NCuentaGerente).HasColumnName("n_cuenta_gerente");
 
-                entity.Property(e => e.NCuentaUsuario).HasColumnName("n_cuenta_usuario");
+            //   entity.Property(e => e.NCuentaUsuario).HasColumnName("n_cuenta_usuario");
 
-                entity.Property(e => e.Tipo)
-                    .HasColumnType("INT (1)")
-                    .HasColumnName("tipo");
+            //   entity.Property(e => e.Tipo)
+            //             .HasColumnType("INT (1)")
+            //             .HasColumnName("tipo");
 
-                entity.HasOne(d => d.NCuentaEmpleadoNavigation)
-                    .WithMany(p => p.Cuenta)
-                    .HasForeignKey(d => d.NCuentaEmpleado);
+            //   entity.HasOne(d => d.NCuentaEmpleadoNavigation)
+            //             .WithMany(p => p.Cuenta)
+            //             .HasForeignKey(d => d.NCuentaEmpleado);
 
-                entity.HasOne(d => d.NCuentaGerenteNavigation)
-                    .WithMany(p => p.Cuenta)
-                    .HasForeignKey(d => d.NCuentaGerente);
+            //   entity.HasOne(d => d.NCuentaGerenteNavigation)
+            //             .WithMany(p => p.Cuenta)
+            //             .HasForeignKey(d => d.NCuentaGerente);
 
-                entity.HasOne(d => d.NCuentaUsuarioNavigation)
-                    .WithMany(p => p.Cuenta)
-                    .HasForeignKey(d => d.NCuentaUsuario);
-            });
+            //   entity.HasOne(d => d.NCuentaUsuarioNavigation)
+            //             .WithMany(p => p.Cuenta)
+            //             .HasForeignKey(d => d.NCuentaUsuario);
+            // });
 
             modelBuilder.Entity<Empleado>(entity =>
             {
@@ -87,7 +87,7 @@ namespace Integrador
                     .HasColumnType("DATE")
                     .HasColumnName("fecha_nacimiento");
 
-          // entity.Property(e => e.Password).HasColumnName("password");
+                // entity.Property(e => e.Password).HasColumnName("password");
 
                 entity.Property(e => e.PrimerApellido)
                     .HasColumnType("VARCHAR (30)")
@@ -131,7 +131,7 @@ namespace Integrador
                     .HasColumnType("DATE")
                     .HasColumnName("fecha_nacimiento");
 
-                entity.Property(e => e.Password).HasColumnName("password");
+                // entity.Property(e => e.Password).HasColumnName("password");
 
                 entity.Property(e => e.PrimerApellido)
                     .HasColumnType("VARCHAR (30)")
@@ -403,10 +403,10 @@ namespace Integrador
                     .HasColumnType("DATE")
                     .HasColumnName("tiempo_bloqueo");
 
-                entity.HasOne(d => d.Persona)
-                    .WithOne(p => p.Usuario)
-                    .HasForeignKey<Usuario>(d => d.PersonaId)
-                    .OnDelete(DeleteBehavior.ClientSetNull);
+                // entity.HasOne(d => d.Persona)
+                //           .WithOne(p => p.Usuario)
+                //           .HasForeignKey<Usuario>(d => d.PersonaId)
+                //           .OnDelete(DeleteBehavior.ClientSetNull);
             });
 
             OnModelCreatingPartial(modelBuilder);
