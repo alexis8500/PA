@@ -53,3 +53,9 @@
 /Users/saulalexisperezrincon/Documents/PA/Integrador/obj/Debug/net6.0/ref/Integrador.dll
 /Users/saulalexisperezrincon/Documents/PA/Integrador/obj/Debug/net6.0/Integrador.pdb
 /Users/saulalexisperezrincon/Documents/PA/Integrador/obj/Debug/net6.0/Integrador.genruntimeconfig.cache
+/Users/saulalexisperezrincon/Documents/PA/Integrador/bin/Debug/net6.0/System.Web.Cors.dll
+/Users/saulalexisperezrincon/Documents/PA/Integrador/bin/Debug/net6.0/System.Net.Http.Formatting.dll
+/Users/saulalexisperezrincon/Documents/PA/Integrador/bin/Debug/net6.0/System.Web.Http.dll
+/Users/saulalexisperezrincon/Documents/PA/Integrador/bin/Debug/net6.0/System.Web.Http.Cors.dll
+/Users/saulalexisperezrincon/Documents/PA/Integrador/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/saulalexisperezrincon/Documents/PA/Integrador/bin/Debug/net6.0/Newtonsoft.Json.Bson.dll

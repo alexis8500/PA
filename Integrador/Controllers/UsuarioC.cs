@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Web.Http.Cors;
 
 namespace Integrador.Controllers;
 
@@ -74,6 +75,7 @@ public class UsuarioController : ControllerBase
         return Ok(prestamo);
     }
 
+    [EnableCors(origins: "http://localhost:5500", headers: "*", methods: "*")]
     [HttpGet("lastPrestamo", Name = "GetUsersLastPrestamo")]
     public IActionResult GetUsersLastPrestamo()
     {
